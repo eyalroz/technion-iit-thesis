@@ -87,3 +87,9 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+
+## Additional ignores for this repository
+
+# archives
+*.zip
+*.tar.*

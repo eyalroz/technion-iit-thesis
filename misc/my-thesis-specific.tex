@@ -21,12 +21,14 @@
 }
 \makeatother
 
-\def\qbfox#1{
-\count1=0%
-\loop%
-   \ifnum\count1<#1%
+% Another dummy text generator...
+\def\qbfox#1{%
+  \count1=0%
+  \loop%
+    \ifnum\count1<#1%
       \advance\count1 by 1%
       The quick brown fox jumped over the lazy dog. %
       \repeat%
-      \relax}
+  \relax%
+}
 

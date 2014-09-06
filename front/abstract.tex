@@ -1,0 +1,43 @@
+
+% Just write down your abstract here, no special commands necessary except for the \abstractEnglish{
+% before this text is used and a closing } at the end of it
+
+\abstractEnglish{
+
+At this point you write the abstract of your work, in the main language in which it is written (in this template - English). Graduate school regulations require the abstract to constitute an independent whole and be understood to a reader with general knowledge of the field. Use complete sentences and make few or no citations. Do not refer to the main body of the work and do not use uncommon shorthand, symbols and terms unless you have room for explaining them. The English abstract should be between 200 and 500 words long.
+
+So this should contain be a few more paragraphs...
+
+}
+
+% Note that various commands don't work that well in Hebrew. Specifically,
+% if you're using hyperref, you'll have trouble with \url, \autoref, \cite
+% and friends. iitthesis-extra.sty has a workaround: the \disabledlinksL
+% command. See the .sty for details, or:
+% http://tex.stackexchange.com/q/32466/5640 for
+
+\abstractHebrew{
+
+כאן יבוא תקציר מורחב בעברית )כאשר שפת החיבור העיקרית היא אנגלית(. היקף התקציר יהיה \L{1000-2000} מילים. התקציר יהווה שלמות בפני עצמו ויהיה מובן לקורא בעל ידיעות כלליות בנושא.
+התקציר ייכתב במשפטים מקושרים שלמים, בדרך-כלל אין לציין בו מקורות ספרותיים וציטוטים. אין להתייחס למספר של פרק, סעיף, נוסחה, ציור או טבלה שבגוף החיבור, ואין להשתמש בקיצורים, סמלים ומונחים לא מקובלים, אלא אם יש בתקציר די מקום לזיהויים.
+
+אם צריך לשים קישור בתקציר העברי, )למשל לצורך ציטוט מקור, כאשר משתמשים גם ב-\L{\texttt{hyperref}} שיוצר קישורים בתוך ה-\L{PDF} עבור ציטוטי מקורות(, אפשר לעטוף אותו בתוך \L{{\textbackslash}L\{\}} , כך: \L{\cite{Hoeffding}}.
+
+\subsection*{תת-חלק בתקציר המורחב}
+
+תוכן מקוצר לגבי נושא מסוים.
+
+\subsection*{תת-חלק נוסף בתקציר המורחב}
+
+תוכן מקוצר לגבי נושא שני. התייחסות ל\emph{מושג} מסוים שהחיבור בוחן. וכולי וכולי.
+
+\subsection*{נקודה מעניינת לגבי העמודים בעברית}
+
+שימו לב כי העמודים בעברית אמורים להיות מיוצרים בסדר ה''הפוך'', הווה אומר העמוד האחרון בקובץ ה-\L{PDF} הוא הכריכה העברית, לפניו השער העברי, ודפי התקציר צריכים להופיע בסדר הפוך )וכן במספור רומי, לפי נהלי הטכניון(. כך עמוד זה, העמוד הראשון בתקציר יש לצפות, ממוספר ב-\L{i} ונמצא אחרון בקובץ ה-\L{PDF}...
+
+\newpage
+
+... ואילו עמוד זה של התקציר המורחב בעברית, שהינו העמוד השני בתקציר, ממוספר ב-\L{ii} ונמצא ראשון בקובץ ה-\L{PDF} --- לפני עמוד \L{i}. המטרה היא, שבעת ההדפסה לא יהיה צורך להפוך דפים, לשנות את סדרם וכולי - רק להדפיס ולכרוך.
+
+}
+

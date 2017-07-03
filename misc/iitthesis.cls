@@ -105,6 +105,7 @@
 
 \RequirePackage{etoolbox}
 
+
 %--------------------------------
 
 % The different degrees the Technion awards for which you might
@@ -114,28 +115,28 @@
 
 % A Ph.D. thesis is the default...
 \newcommand{\iitthesis@degreeEnglish}{Doctor of Philosophy}
-\newcommand{\iitthesis@degreeHebrew}{γεχθεψ μτιμερετιδ}
+\newcommand{\iitthesis@degreeHebrew}{Χ“Χ•Χ§ΧΧ•Χ¨ ΧΧ¤Χ™ΧΧ•Χ΅Χ•Χ¤Χ™Χ”}
 \DeclareOption{PhD}{%
 }
 
 \DeclareOption{MSc}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Science in \iitthesis@disciplineEnglish}
-  \renewcommand{\iitthesis@degreeHebrew}{ξβιρθψ μξγςιν α\relax\iitthesis@disciplineHebrew}
+  \renewcommand{\iitthesis@degreeHebrew}{ΧΧ’Χ™Χ΅ΧΧ¨ ΧΧΧ“ΧΆΧ™Χ Χ‘\relax\iitthesis@disciplineHebrew}
 }
 
 \DeclareOption{MArch}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Architecture}
-  \renewcommand{\iitthesis@degreeHebrew}{ξβιρθψ μΰψλιθχθεψδ}
+  \renewcommand{\iitthesis@degreeHebrew}{ΧΧ’Χ™Χ΅ΧΧ¨ ΧΧΧ¨Χ›Χ™ΧΧ§ΧΧ•Χ¨Χ”}
 }
 
 \DeclareOption{MEcon}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Economics}
-  \renewcommand{\iitthesis@degreeHebrew}{ξβιρθψ μλμλμδ}
+  \renewcommand{\iitthesis@degreeHebrew}{ΧΧ’Χ™Χ΅ΧΧ¨ ΧΧ›ΧΧ›ΧΧ”}
 }
 
 \DeclareOption{ME}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Engineering}
-  \renewcommand{\iitthesis@degreeHebrew}{ξβιρθψ μδπγρδ}
+  \renewcommand{\iitthesis@degreeHebrew}{ΧΧ’Χ™Χ΅ΧΧ¨ ΧΧ”Χ Χ“Χ΅Χ”}
 }
 
 \newbool{iitthesis-abbrevs}
@@ -170,7 +171,7 @@
 
 % Packages and package option setting - after option processing
 
-\RequirePackage[hebrew,english]{babel}
+%\RequirePackage[hebrew,english]{babel}
 \RequirePackage{setspace}
 \RequirePackage{geometry}
 \RequirePackage{atbegshi}
@@ -204,7 +205,7 @@
  {}
  {%
   \listoffigures%
-  \addcontentsline{cot}{chapter}{ψωιξϊ ΰιεψιν}%
+  \addcontentsline{cot}{chapter}{Χ¨Χ©Χ™ΧΧª ΧΧ™Χ•Χ¨Χ™Χ}%
   \addcontentsline{toc}{chapter}{List of Figures}%
   }
 }%
@@ -289,27 +290,27 @@
 }
 
 \iitthesis@thesisdatafield{authorEnglish}{Name of Author}
-\iitthesis@thesisdatafield{authorHebrew}{ων δξηαψ}
+\iitthesis@thesisdatafield{authorHebrew}{Χ©Χ Χ”ΧΧ—Χ‘Χ¨}
 \iitthesis@thesisdatafield{titleEnglish}{Thesis Title}
-\iitthesis@thesisdatafield{titleHebrew}{λεϊψϊ δηιαεψ}
+\iitthesis@thesisdatafield{titleHebrew}{Χ›Χ•ΧªΧ¨Χª Χ”Χ—Χ™Χ‘Χ•Χ¨}
 \iitthesis@thesisdatafield{disciplineEnglish}{Discipline Name}
-\iitthesis@thesisdatafield{disciplineHebrew}{ων δϊηεν δξγςι}
+\iitthesis@thesisdatafield{disciplineHebrew}{Χ©Χ Χ”ΧªΧ—Χ•Χ Χ”ΧΧ“ΧΆΧ™}
 \iitthesis@thesisdatafield{supervisionEnglish}{Information regarding the supervision and supervisors}
-\iitthesis@thesisdatafield{supervisionHebrew}{ξιγς ςμ δξπηιν εδδπηιδ}
-\iitthesis@thesisdatafield{publicationInfoHebrew}{φιεο ΰν δςαεγδ τεψρξδ αλϊαι ςϊ ΰε  δεφβδ αλπριν. δψωιξδ ϊλϊα αδϊΰν μλμμι δφιθεθ (λεμμ δλεϊψ εωξεϊ δωεϊτιν). αξχψδ ωμ ωιϊεσ τςεμδ, τιψεθ ϊψεξϊ δξβιω.}
+\iitthesis@thesisdatafield{supervisionHebrew}{ΧΧ™Χ“ΧΆ ΧΆΧ Χ”ΧΧ Χ—Χ™Χ Χ•Χ”Χ”Χ Χ—Χ™Χ”}
+\iitthesis@thesisdatafield{publicationInfoHebrew}{Χ¦Χ™Χ•Χ ΧΧ Χ”ΧΆΧ‘Χ•Χ“Χ” Χ¤Χ•Χ¨Χ΅ΧΧ” Χ‘Χ›ΧªΧ‘Χ™ ΧΆΧª ΧΧ•  Χ”Χ•Χ¦Χ’Χ” Χ‘Χ›Χ Χ΅Χ™Χ. Χ”Χ¨Χ©Χ™ΧΧ” ΧªΧ›ΧªΧ‘ Χ‘Χ”ΧªΧΧ ΧΧ›ΧΧΧ™ Χ”Χ¦Χ™ΧΧ•Χ (Χ›Χ•ΧΧ Χ”Χ›Χ•ΧªΧ¨ Χ•Χ©ΧΧ•Χª Χ”Χ©Χ•ΧªΧ¤Χ™Χ). Χ‘ΧΧ§Χ¨Χ” Χ©Χ Χ©Χ™ΧªΧ•Χ£ Χ¤ΧΆΧ•ΧΧ”, Χ¤Χ™Χ¨Χ•Χ ΧªΧ¨Χ•ΧΧª Χ”ΧΧ’Χ™Χ©.}
 \iitthesis@thesisdatafield{publicationInfoEnglish}{Info about whether the contents of the thesis was published, about collaborators and the thesis author's contribution.}
 \iitthesis@thesisdatafield{GregorianDateEnglish}{Gregorian Month and Year}
-\iitthesis@thesisdatafield{GregorianDateHebrew}{ηεγω εωπδ βψβεψιΰπιιν}
+\iitthesis@thesisdatafield{GregorianDateHebrew}{Χ—Χ•Χ“Χ© Χ•Χ©Χ Χ” Χ’Χ¨Χ’Χ•Χ¨Χ™ΧΧ Χ™Χ™Χ}
 \iitthesis@thesisdatafield{JewishDateEnglish}{Hebrew Month and Year}
-\iitthesis@thesisdatafield{JewishDateHebrew}{ηεγω εωπδ ςαψιιν}
+\iitthesis@thesisdatafield{JewishDateHebrew}{Χ—Χ•Χ“Χ© Χ•Χ©Χ Χ” ΧΆΧ‘Χ¨Χ™Χ™Χ}
 \iitthesis@thesisdatafield{personalAcknowledgementEnglish}{The author's personal acknowledgements.}
-\iitthesis@thesisdatafield{personalAcknowledgementHebrew}{ωμξι-δϊεγδ ωμ δξηαψ.}
+\iitthesis@thesisdatafield{personalAcknowledgementHebrew}{Χ©ΧΧΧ™-Χ”ΧªΧ•Χ“Χ” Χ©Χ Χ”ΧΧ—Χ‘Χ¨.}
 \iitthesis@thesisdatafield{financialAcknowledgementEnglish}{The generous financial help of the Technion is gratefully acknowledged.}
-\iitthesis@thesisdatafield{financialAcknowledgementHebrew}{ΰπι ξεγδ μθλπιεο ςμ δϊξιλδ δλρτιϊ δπγιαδ αδωϊμξεϊι.}
+\iitthesis@thesisdatafield{financialAcknowledgementHebrew}{ΧΧ Χ™ ΧΧ•Χ“Χ” ΧΧΧ›Χ Χ™Χ•Χ ΧΆΧ Χ”ΧªΧΧ™Χ›Χ” Χ”Χ›Χ΅Χ¤Χ™Χª Χ”Χ Χ“Χ™Χ‘Χ” Χ‘Χ”Χ©ΧªΧΧΧ•ΧªΧ™.}
 % Regulations require the English abstract contain 200-500 words.
 \iitthesis@thesisdatafield{abstractEnglish}{Abstract of the thesis.}
 % Regulations require the Hebrew abstract contain 1,000-2,000 words.
-\iitthesis@thesisdatafield{abstractHebrew}{ϊχφιψ δηιαεψ.}
+\iitthesis@thesisdatafield{abstractHebrew}{ΧªΧ§Χ¦Χ™Χ¨ Χ”Χ—Χ™Χ‘Χ•Χ¨.}
 \iitthesis@thesisdatafield{abbreviationsAndNotation}{Abbreviations and
 notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 % the following should be a comma-separate list of relative filenames,
@@ -584,7 +585,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 \newcommand{\makeabstractEnglish}{%
  \chapter*{Abstract}
  \addcontentsline{toc}{chapter}{Abstract}
- \addcontentsline{cot}{chapter}{ϊχφιψ}
+ \addcontentsline{cot}{chapter}{ΧªΧ§Χ¦Χ™Χ¨}
 
  \iitthesis@abstractEnglish
 }
@@ -592,7 +593,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 \newcommand{\makeabbreviationsAndNotation}{%
  \chapter*{Abbreviations and Notations}
  \addcontentsline{toc}{chapter}{Abbreviations and Notations}
- \addcontentsline{cot}{chapter}{ψωιξϊ χιφεψιν ερξμιν}
+ \addcontentsline{cot}{chapter}{Χ¨Χ©Χ™ΧΧª Χ§Χ™Χ¦Χ•Χ¨Χ™Χ Χ•Χ΅ΧΧΧ™Χ}
  \iitthesis@abbreviationsAndNotation
 }
 
@@ -648,14 +649,14 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
    \vspace*{\stretch{1}}
 
-   \vphantom{ηιαεψ ςμ ξηχψ}
+   \vphantom{Χ—Χ™Χ‘Χ•Χ¨ ΧΆΧ ΧΧ—Χ§Χ¨}
 
    \vspace*{\stretch{0.5}}
 
    \vphantom{\parbox{3.5in}{
      \normalsize
      \begin{center}
-       μων ξιμει ημχι ωμ δγψιωεϊ μχαμϊ δϊεΰψ \\
+       ΧΧ©Χ ΧΧ™ΧΧ•Χ™ Χ—ΧΧ§Χ™ Χ©Χ Χ”Χ“Χ¨Χ™Χ©Χ•Χª ΧΧ§Χ‘ΧΧª Χ”ΧªΧ•ΧΧ¨ \\
        \iitthesis@degreeHebrew
      \end{center}
   }}
@@ -669,9 +670,9 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
   \vphantom{\parbox{3in}{
      \normalsize
      \begin{center}
-       ξεβω μρπθ δθλπιεο {\textemdash} ξλεο θλπεμεβι μιωψΰμ
+       ΧΧ•Χ’Χ© ΧΧ΅Χ Χ Χ”ΧΧ›Χ Χ™Χ•Χ {\textemdash} ΧΧ›Χ•Χ ΧΧ›Χ Χ•ΧΧ•Χ’Χ™ ΧΧ™Χ©Χ¨ΧΧ
        \iitthesis@JewishDateHebrew
-       \hspace{0.75cm} ηιτδ \hspace{0.75cm}
+       \hspace{0.75cm} Χ—Χ™Χ¤Χ” \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew
      \end{center}
   }}
@@ -691,14 +692,14 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
   \vspace*{\stretch{1}}
 
-  ηιαεψ ςμ ξηχψ
+  Χ—Χ™Χ‘Χ•Χ¨ ΧΆΧ ΧΧ—Χ§Χ¨
 
   \vspace*{\stretch{0.5}}
 
   \parbox{3.5in}{
     \normalsize
     \begin{center}
-      μων ξιμει ημχι ωμ δγψιωεϊ μχαμϊ δϊεΰψ \\
+      ΧΧ©Χ ΧΧ™ΧΧ•Χ™ Χ—ΧΧ§Χ™ Χ©Χ Χ”Χ“Χ¨Χ™Χ©Χ•Χª ΧΧ§Χ‘ΧΧª Χ”ΧªΧ•ΧΧ¨ \\
       \iitthesis@degreeHebrew
     \end{center}
   }
@@ -712,9 +713,9 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
   \parbox{4in}{
      \normalsize
      \begin{center}
-       δεβω μρπθ δθλπιεο {\textemdash\relax} ξλεο θλπεμεβι μιωψΰμ \\
+       Χ”Χ•Χ’Χ© ΧΧ΅Χ Χ Χ”ΧΧ›Χ Χ™Χ•Χ {\textemdash\relax} ΧΧ›Χ•Χ ΧΧ›Χ Χ•ΧΧ•Χ’Χ™ ΧΧ™Χ©Χ¨ΧΧ \\
        \iitthesis@JewishDateHebrew
-       \hspace{0.75cm} ηιτδ \hspace{0.75cm}
+       \hspace{0.75cm} Χ—Χ™Χ¤Χ” \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew
      \end{center}
   }
@@ -737,7 +738,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
     %\vspace*{\stretch{1}}
     \medskip
     \begin{center}
-    \textbf{\Large \textsc{ϊεγεϊ}}
+    \textbf{\Large \textsc{ΧªΧ•Χ“Χ•Χª}}
     \end{center}
     \noindent
     \iitthesis@personalAcknowledgementHebrew
@@ -752,8 +753,8 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
 \newcommand{\makeabstractHebrew}{
   \begin{otherlanguage}{hebrew}
-  \chapter*{ϊχφιψ}
-  \addcontentsline{cot}{chapter}{ϊχφιψ ςαψι}
+  \chapter*{ΧªΧ§Χ¦Χ™Χ¨}
+  \addcontentsline{cot}{chapter}{ΧªΧ§Χ¦Χ™Χ¨ ΧΆΧ‘Χ¨Χ™}
   \addcontentsline{toc}{chapter}{Hebrew Abstract}
   \setlength{\parindent}{0pt}
   \setlength{\parskip}{10pt}
@@ -797,7 +798,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 % Ido Tal suggests the following commands to fix problems with captions
 
 % \bcaption{Hebrew caption}{English caption}
-\renewcommand{\bcaption}[2]{%
+\newcommand{\bcaption}[2]{%
   \caption[\protect\if@rl \R{#1}\protect\else \L{#2}\protect\fi]{%
   \if@rl\R{#1} \else\L{#2}\fi}
 }

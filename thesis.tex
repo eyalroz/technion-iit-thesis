@@ -67,23 +67,24 @@
 % an extra run. See also:
 % http://tex.stackexchange.com/q/41727/5640
 \usepackage{multibib}
-%\usepackage{biblatex}
-%\DeclareLanguageMapping{english}{sbl-english}
 
 \newcites{pubinfo}{Acknowledgement page references}
 \def\iitthesisextramultibibdefs{}
 
-\RequirePackage{fontspec}
-\RequirePackage{polyglossia}
+% those should be last
+%%%% HEBREW DEFINITIONS  %%%%
+\usepackage{fontspec}
+\usepackage{polyglossia}
 
 \setotherlanguage{hebrew}
 \setdefaultlanguage{english}
-%\setmainfont{FreeSans}
-\newfontfamily\hebrewfont{David}
+\newfontfamily\hebrewfont[Script=Hebrew]{David}
 
-\newfontfamily\hebrewfontsf{David}
-\newfontfamily\hebrewfonttt{David}
+\newfontfamily\hebrewfontsf[Script=Hebrew]{David}
+\newfontfamily\hebrewfonttt[Script=Hebrew]{David}
 \hebrewfont\bfseries
+
+%%%% END OF HEBREW DEFINITIONS  %%%%
 
 \begin{document}
 

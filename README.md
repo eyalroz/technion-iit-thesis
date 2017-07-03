@@ -22,6 +22,8 @@ Contributors
 ------------
 
 <dl>
+<dt><a href="mailto:zheltonozhskiy@gmail.com">Evgenii Zheltonozhskii</a>
+<dd>Contributor (XeTeX support)
 <dt><a href="mailto:eyalroz@technion.ac.il">Eyal Rozenberg</a>
 <dd>Contributor and current maintainer
 <dt><a href="mailto:idotal@ee.technion.ac.il">Ido Tal</a>

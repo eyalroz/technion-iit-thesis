@@ -88,8 +88,13 @@ sympy-plots-for-*.tex/
 # xindy
 *.xdy
 
+# changebar
+*.cb
+*.cb2
+
 ## Additional ignores for this repository
 
 # archives
 *.zip
 *.tar.*
+thesis.pdf

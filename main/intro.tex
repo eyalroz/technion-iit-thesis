@@ -28,3 +28,17 @@ Please note that the \texttt{iitthesis} class has several options when you use i
 \item \texttt{beforeExam} makes the personal acknowledgements invisible; use this to print the copies you submit initially to the grad school for sending to the examiners (who shouldn't see these). For the final submission, drop this option.
 \item \texttt{noabbrevs} no notation \& abbreviations list will be included in the thesis.
 \end{itemize}
+
+\subsection*{Setting thesis meta-data and publication information}
+
+The document class used to generate this document defines several commands you can use to set information  regarding your thesis, which is used in the title pages and elsewhere in the front matter.  Every (or almost every) command has an English and a Hebrew variant, with a \texttt{English} or \texttt{Hebrew} suffix to the command name. Examples:
+\begin{itemize}
+\item \verb|\titleHebrew|, \verb|\titleEnglish|
+\item \verb|\authorHebrew|, \verb|\authorEnglish|
+\item \verb|\JewishDateHebrew|, \verb|\JewishDateEnglish|
+\item \verb|\GregorianDateHebrew|, \verb|\GregorianDateEnglish|
+\item \verb|\publicationinfoHebrew|, \verb|\publicationinfoEnglish|
+\end{itemize}
+
+The file \texttt{misc/thesis-fields.tex} contains invocations of several such commands (some of them commented-out with \texttt{\%}), and some additional information about them.
+

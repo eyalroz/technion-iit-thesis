@@ -125,6 +125,7 @@
 \def\L{\protect\pL}
 
 \RequirePackage[hyperref,thmmarks]{ntheorem}
+\RequirePackage{amssymb} % for \blacksquare
 \RequirePackage{aliascnt}
 \RequirePackage{mathtools}
 
@@ -405,9 +406,10 @@
    {\item[\theorem@headerfont \hskip\labelsep ##1\theorem@separator]}%
    {\item[{\theorem@headerfont\hskip \labelsep ##3}\theorem@separator]}
 
+
+
  % We can now proceed to define the theorem-like environments we will be using
  % in the thesis
-
 
  %style:
  \theoremstyle{ams-theorem}
@@ -474,9 +476,12 @@
   \th@nonumberplain
   \def\theorem@headerfont{\itshape}%
   \normalfont
-  %\theoremsymbol{\ensuremath{_\blacksquare}}
   \@thm{proof}{proof}{{#1}.}}%
-   {\@endtheorem}
+   {\@endtheorem} % and this ends the definition of the proof environment
+
+\renewcommand\proofSymbol{\ensuremath{\blacksquare}}
+\qedsymbol{\ensuremath{\blacksquare}}
+
 }
 {
  % amsthm-based

@@ -92,8 +92,8 @@
 %%
 
 \def\filename{iitthesis}
-\def\fileversion{v0.7}
-\def\filedate{2014/07/06}
+\def\fileversion{v0.8}
+\def\filedate{2017/09/16}
 \NeedsTeXFormat{LaTeX2e}
 \edef\iitthesis@TechnionIITThesis{%
 \filedate\space\fileversion\space - Technion IIT Thesis}
@@ -147,8 +147,10 @@
 
 \newbool{iitthesis-includeack}
 \booltrue{iitthesis-includeack}
-\DeclareOption{beforeExam}{
-  % No personal Acknowledgement are printed before the exam is taken and passed
+\DeclareOption{beforeDefense}{
+  % No personal Acknowledgement are printed before the thesis is successfully
+  % defended (this is also known, especially in Hebrew, as taking an "exam on
+  % your thesis")
   \boolfalse{iitthesis-includeack}
 }
 

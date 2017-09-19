@@ -1,11 +1,13 @@
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
+*.fol
 *.log
 *.lot
 *.fls
 *.out
 *.toc
+*.cot
 
 ## Intermediate documents:
 *.dvi
@@ -25,6 +27,8 @@
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
+*.synctex
+*.synctex(busy)
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync

@@ -102,6 +102,9 @@
 
 % Packages and package option setting - after option processing
 
+% The following package  is required for fixing a Hebrew bulleted list issue, see
+% https://tex.stackexchange.com/questions/53444/
+\RequirePackage{enumitem}
 % The following really shouldn't be loaded here, but we need it loaded before polyglossia 
 % due to a bug in amsmath - it expects @leqno to be a primitive, which, with polyglossia,
 % it no longer is; see https://tex.stackexchange.com/a/384805/5640
@@ -705,6 +708,7 @@
 
 \newcommand{\makeabstractHebrew}{
   \begin{hebrew}
+  \setlist[itemize,1]{label={\fontfamily{cmr}\fontencoding{T1}\selectfont\textbullet}}
   \chapter*{תקציר}
   \addcontentsline{cot}{chapter}{תקציר עברי}
   \begin{english}

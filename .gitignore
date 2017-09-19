@@ -97,4 +97,8 @@ sympy-plots-for-*.tex/
 # archives
 *.zip
 *.tar.*
+
+# unknown
+*.xdv
+
 thesis.pdf

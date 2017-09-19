@@ -5,22 +5,24 @@
 %% according to the specifications of the Technion -
 %% Israeli Institute of Technology
 %%
-%%
-%% Contributors:
-%%
-%% Dan Kenigsberg       <danken@cs.technion.ac.il>
-%%       Author of the thesis on which the original class was based
-%% Ido Tal              <idotal@cs.technion.ac.il>
-%%                      <ital@mail.ucsd.edu>
-%%       Original class author
+%% Maintainer:
 %% Eyal Rozenberg       <eyalroz@technion.ac.il>
 %%                      <eyalroz@riseup.net>
-%%       Contributor
+%%
+%% Original author:
+%% Dan Kenigsberg       <danken@cs.technion.ac.il>
+%%
+%% Contributor:
+%% Ido Tal              <idotal@ee.technion.ac.il>
 %%
 %% Notes:
 %% - This class has a hard-coded default of using A4 paper,11pt-size font
-%%   for the body text, and 'one-and-a-half' line spacing.
-%% - This class is still kind of half-baked. Please help improve it.
+%%   for the body text, and 'one-and-a-half' line spacing. This meets Technion
+%%   regulations, and it doesn't seem we need an option to change it.
+%% - This class is being maintained within a repository containing a complete
+%%   template for a thesis, at https://github.com/eyalroz/technion-iit-thesis
+%%   where you can find additional information as well as report issues
+%%   and make suggestions.
 %%
 %% To Do - Check recent changes:
 %% - Make sure the openright option for the report class doesn't cause weird
@@ -46,8 +48,6 @@
 %%   whether the Technion doesn't want this somehow.
 %%
 %% To Do - LaTeX quality improvements:
-%% - Make the class work with xelatex and polyglossia, not just
-%%   (e)latex/pdf(e)latex and babel
 %% - Consider switching from report class to something else (KOMAscript's
 %%   scrreprt or perhaps memoir)
 %% - There's code duplication for the front matter vs the front cover; we
@@ -92,8 +92,8 @@
 %%
 
 \def\filename{iitthesis}
-\def\fileversion{v0.8}
-\def\filedate{2017/09/16}
+\def\fileversion{v0.9}
+\def\filedate{2017/09/18}
 \NeedsTeXFormat{LaTeX2e}
 \edef\iitthesis@TechnionIITThesis{%
 \filedate\space\fileversion\space - Technion IIT Thesis}
@@ -114,28 +114,28 @@
 
 % A Ph.D. thesis is the default...
 \newcommand{\iitthesis@degreeEnglish}{Doctor of Philosophy}
-\newcommand{\iitthesis@degreeHebrew}{ãå÷èåø ìôéìåñåôéä}
+\newcommand{\iitthesis@degreeHebrew}{×“×•×§×˜×•×¨ ×œ×¤×™×œ×•×¡×•×¤×™×”}
 \DeclareOption{PhD}{%
 }
 
 \DeclareOption{MSc}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Science in \iitthesis@disciplineEnglish}
-  \renewcommand{\iitthesis@degreeHebrew}{îâéñèø ìîãòéí á\relax\iitthesis@disciplineHebrew}
+  \renewcommand{\iitthesis@degreeHebrew}{××’×™×¡×˜×¨ ×œ××“×¢×™× ×‘\relax\iitthesis@disciplineHebrew}
 }
 
 \DeclareOption{MArch}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Architecture}
-  \renewcommand{\iitthesis@degreeHebrew}{îâéñèø ìàøëéè÷èåøä}
+  \renewcommand{\iitthesis@degreeHebrew}{××’×™×¡×˜×¨ ×œ××¨×›×™×˜×§×˜×•×¨×”}
 }
 
 \DeclareOption{MEcon}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Economics}
-  \renewcommand{\iitthesis@degreeHebrew}{îâéñèø ìëìëìä}
+  \renewcommand{\iitthesis@degreeHebrew}{××’×™×¡×˜×¨ ×œ×›×œ×›×œ×”}
 }
 
 \DeclareOption{ME}{%
   \renewcommand{\iitthesis@degreeEnglish}{Master of Engineering}
-  \renewcommand{\iitthesis@degreeHebrew}{îâéñèø ìäğãñä}
+  \renewcommand{\iitthesis@degreeHebrew}{××’×™×¡×˜×¨ ×œ×”× ×“×¡×”}
 }
 
 \newbool{iitthesis-abbrevs}
@@ -172,12 +172,35 @@
 
 % Packages and package option setting - after option processing
 
-\RequirePackage[hebrew,english]{babel}
+% The following really shouldn't be loaded here, but we need it loaded before polyglossia 
+% due to a bug in amsmath - it expects @leqno to be a primitive, which, with polyglossia,
+% it no longer is; see https://tex.stackexchange.com/a/384805/5640
+\RequirePackage{amsmath} 
+\RequirePackage{fontspec}
+% The following really shouldn't be loaded here, but we need it loaded before the bidi
+% package due to some bug / misfeature; see https://tex.stackexchange.com/a/384805/5640
+\RequirePackage{float} 
+\RequirePackage{geometry} % Note: must be loaded before bidi
+% The following three packages must be loaded before bidi
+\RequirePackage{algorithmicx}
+\RequirePackage{hyperref}
+\RequirePackage[hyperref,thmmarks]{ntheorem} % must be loaded before bidi
+\RequirePackage{polyglossia}
+\RequirePackage{bidi}
 \RequirePackage{setspace}
-\RequirePackage{geometry}
 \RequirePackage{atbegshi}
 
 \iitthesis@geometry
+
+%--------------------------------
+
+% Polyglossia & language settings
+
+\setmainlanguage[variant=british]{english} % Palestine was under British rule after all
+\setotherlanguage[numerals=arabic,calendar=gregorian]{hebrew}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
+%\setmonofont[Script=Hebrew]{DejaVu Sans}% 
+
 
 %--------------------------------
 
@@ -206,7 +229,7 @@
  {}
  {%
   \listoffigures%
-  \addcontentsline{cot}{chapter}{øùéîú àéåøéí}%
+  \addcontentsline{cot}{chapter}{×¨×©×™××ª ××™×•×¨×™×}%
   \addcontentsline{toc}{chapter}{List of Figures}%
   }
 }%
@@ -291,29 +314,29 @@
 }
 
 \iitthesis@thesisdatafield{authorEnglish}{Name of Author}
-\iitthesis@thesisdatafield{authorHebrew}{ùí äîçáø}
+\iitthesis@thesisdatafield{authorHebrew}{×©× ×”××—×‘×¨}
 \iitthesis@thesisdatafield{titleEnglish}{Thesis Title}
-\iitthesis@thesisdatafield{titleHebrew}{ëåúøú äçéáåø}
+\iitthesis@thesisdatafield{titleHebrew}{×›×•×ª×¨×ª ×”×—×™×‘×•×¨}
 \iitthesis@thesisdatafield{disciplineEnglish}{Discipline Name}
-\iitthesis@thesisdatafield{disciplineHebrew}{ùí äúçåí äîãòé}
+\iitthesis@thesisdatafield{disciplineHebrew}{×©× ×”×ª×—×•× ×”××“×¢×™}
 \iitthesis@thesisdatafield{supervisionEnglish}{Information regarding the supervision and supervisors}
-\iitthesis@thesisdatafield{supervisionHebrew}{îéãò òì äîğçéí åääğçéä}
-\iitthesis@thesisdatafield{publicationInfoHebrew}{öéåï àí äòáåãä ôåøñîä áëúáé òú àå  äåöâä áëğñéí. äøùéîä úëúá áäúàí ìëììé äöéèåè (ëåìì äëåúø åùîåú äùåúôéí). áî÷øä ùì ùéúåó ôòåìä, ôéøåè úøåîú äîâéù.}
+\iitthesis@thesisdatafield{supervisionHebrew}{××™×“×¢ ×¢×œ ×”×× ×—×™× ×•×”×”× ×—×™×”}
+\iitthesis@thesisdatafield{publicationInfoHebrew}{×¦×™×•×Ÿ ×× ×”×¢×‘×•×“×” ×¤×•×¨×¡××” ×‘×›×ª×‘×™ ×¢×ª ××•  ×”×•×¦×’×” ×‘×›× ×¡×™×. ×”×¨×©×™××” ×ª×›×ª×‘ ×‘×”×ª×× ×œ×›×œ×œ×™ ×”×¦×™×˜×•×˜ (×›×•×œ×œ ×”×›×•×ª×¨ ×•×©××•×ª ×”×©×•×ª×¤×™×). ×‘××§×¨×” ×©×œ ×©×™×ª×•×£ ×¤×¢×•×œ×”, ×¤×™×¨×•×˜ ×ª×¨×•××ª ×”××’×™×©.}
 \iitthesis@thesisdatafield{publicationInfoEnglish}{Info about whether the contents of the thesis was published, about collaborators and the thesis author's contribution.}
 \iitthesis@thesisdatafield{GregorianDateEnglish}{Gregorian Month and Year}
-\iitthesis@thesisdatafield{GregorianDateHebrew}{çåãù åùğä âøâåøéàğééí}
+\iitthesis@thesisdatafield{GregorianDateHebrew}{×—×•×“×© ×•×©× ×” ×’×¨×’×•×¨×™×× ×™×™×}
 \iitthesis@thesisdatafield{JewishDateEnglish}{Hebrew Month and Year}
-\iitthesis@thesisdatafield{JewishDateHebrew}{çåãù åùğä òáøééí}
+\iitthesis@thesisdatafield{JewishDateHebrew}{×—×•×“×© ×•×©× ×” ×¢×‘×¨×™×™×}
 \iitthesis@thesisdatafield{personalAcknowledgementEnglish}{The author's personal acknowledgements.}
-\iitthesis@thesisdatafield{personalAcknowledgementHebrew}{ùìîé-äúåãä ùì äîçáø.}
+\iitthesis@thesisdatafield{personalAcknowledgementHebrew}{×©×œ××™-×”×ª×•×“×” ×©×œ ×”××—×‘×¨.}
 \iitthesis@thesisdatafield{financialAcknowledgementEnglish}{The generous financial help of the Technion is gratefully acknowledged.}
-\iitthesis@thesisdatafield{financialAcknowledgementHebrew}{àğé îåãä ìèëğéåï òì äúîéëä äëñôéú äğãéáä áäùúìîåúé.}
+\iitthesis@thesisdatafield{financialAcknowledgementHebrew}{×× ×™ ××•×“×” ×œ×˜×›× ×™×•×Ÿ ×¢×œ ×”×ª××™×›×” ×”×›×¡×¤×™×ª ×”× ×“×™×‘×” ×‘×”×©×ª×œ××•×ª×™.}
 % Regulations require the English abstract contain 200-500 words.
 \iitthesis@thesisdatafield{abstractEnglish}{Abstract of the thesis.}
 % Regulations require the Hebrew abstract contain 1,000-2,000 words.
-\iitthesis@thesisdatafield{abstractHebrew}{ú÷öéø äçéáåø.}
-\iitthesis@thesisdatafield{abbreviationsAndNotation}{Abbreviations and
-notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
+\iitthesis@thesisdatafield{abstractHebrew}{×ª×§×¦×™×¨ ×”×—×™×‘×•×¨.}
+\iitthesis@thesisdatafield{abbreviationsAndNotation}{Abbreviations and notations listing here.} 
+\iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 % the following should be a comma-separate list of relative filenames,
 % e.g. {backmatter/compsci.bib,backmatter/math.bib,specific.bib}
 \iitthesis@thesisdatafield{thesisbibfiles}{}
@@ -477,9 +500,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
   \vspace*{\stretch{1}}
   \begin{spacing}{1}
-    \Huge \bf
-%    \scalebox{0.95}{\iitthesis@titleEnglish}
-    \iitthesis@titleEnglish
+    \Huge \textbf{\iitthesis@titleEnglish}
   \end{spacing}
   \Large
 
@@ -500,7 +521,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
   \vspace*{\stretch{2}}
 
-  {\LARGE \bf \iitthesis@authorEnglish}
+  {\LARGE \textbf{\iitthesis@authorEnglish}}
 
   \vspace*{\stretch{3}}
 
@@ -520,7 +541,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
   \vspace*{\stretch{1}}
   \begin{spacing}{1}
-    \Huge \bf \iitthesis@titleEnglish
+    \Huge \textbf{\iitthesis@titleEnglish}
   \end{spacing}
   \Large
 
@@ -540,7 +561,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
   \vspace*{\stretch{2}}
 
-  {\LARGE \bf \iitthesis@authorEnglish}
+  {\LARGE \textbf{\iitthesis@authorEnglish}}
 
   \vspace*{\stretch{3}}
 
@@ -586,7 +607,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 \newcommand{\makeabstractEnglish}{%
  \chapter*{Abstract}
  \addcontentsline{toc}{chapter}{Abstract}
- \addcontentsline{cot}{chapter}{ú÷öéø}
+ \addcontentsline{cot}{chapter}{×ª×§×¦×™×¨}
 
  \iitthesis@abstractEnglish
 }
@@ -594,7 +615,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 \newcommand{\makeabbreviationsAndNotation}{%
  \chapter*{Abbreviations and Notations}
  \addcontentsline{toc}{chapter}{Abbreviations and Notations}
- \addcontentsline{cot}{chapter}{øùéîú ÷éöåøéí åñîìéí}
+ \addcontentsline{cot}{chapter}{×¨×©×™××ª ×§×™×¦×•×¨×™× ×•×¡××œ×™×}
  \iitthesis@abbreviationsAndNotation
 }
 
@@ -640,92 +661,92 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 
 \newcommand{\makecoverHebrew}{
 
- \begin{otherlanguage}{hebrew}
+ \begin{hebrew}
  \begin{center}
    \vspace*{\stretch{1}}
    \begin{spacing}{1}
-     \Huge \bf \iitthesis@titleHebrew
+     \Huge \textbf{\iitthesis@titleHebrew}
    \end{spacing}
    \Large
 
    \vspace*{\stretch{1}}
 
-   \vphantom{çéáåø òì îç÷ø}
+   \vphantom{×—×™×‘×•×¨ ×¢×œ ××—×§×¨}
 
    \vspace*{\stretch{0.5}}
 
    \vphantom{\parbox{3.5in}{
      \normalsize
      \begin{center}
-       ìùí îéìåé çì÷é ùì äãøéùåú ì÷áìú äúåàø \\
+       ×œ×©× ××™×œ×•×™ ×—×œ×§×™ ×©×œ ×”×“×¨×™×©×•×ª ×œ×§×‘×œ×ª ×”×ª×•××¨ \\
        \iitthesis@degreeHebrew
      \end{center}
   }}
 
   \vspace*{\stretch{2}}
 
-  {\LARGE \bf \iitthesis@authorHebrew}
+  {\LARGE \textbf{\iitthesis@authorHebrew}}
 
   \vspace*{\stretch{3}}
 
   \vphantom{\parbox{3in}{
      \normalsize
      \begin{center}
-       îåâù ìñğè äèëğéåï {\textemdash} îëåï èëğåìåâé ìéùøàì
+       ××•×’×© ×œ×¡× ×˜ ×”×˜×›× ×™×•×Ÿ {\textemdash} ××›×•×Ÿ ×˜×›× ×•×œ×•×’×™ ×œ×™×©×¨××œ
        \iitthesis@JewishDateHebrew
-       \hspace{0.75cm} çéôä \hspace{0.75cm}
+       \hspace{0.75cm} ×—×™×¤×” \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew
      \end{center}
   }}
  \end{center}
- \end{otherlanguage}
+ \end{hebrew}
 }
 
 \newcommand{\maketitleHebrew}{
- \begin{otherlanguage}{hebrew}
+ \begin{hebrew}
  \begin{center}
 
   \vspace*{\stretch{1}}
   \begin{spacing}{1}
-    \Huge \bf \iitthesis@titleHebrew
+    \Huge \textbf{\iitthesis@titleHebrew}
   \end{spacing}
   \Large
 
   \vspace*{\stretch{1}}
 
-  çéáåø òì îç÷ø
+  ×—×™×‘×•×¨ ×¢×œ ××—×§×¨
 
   \vspace*{\stretch{0.5}}
 
   \parbox{3.5in}{
     \normalsize
     \begin{center}
-      ìùí îéìåé çì÷é ùì äãøéùåú ì÷áìú äúåàø \\
+      ×œ×©× ××™×œ×•×™ ×—×œ×§×™ ×©×œ ×”×“×¨×™×©×•×ª ×œ×§×‘×œ×ª ×”×ª×•××¨ \\
       \iitthesis@degreeHebrew
     \end{center}
   }
 
   \vspace*{\stretch{2}}
 
-  {\LARGE \bf \iitthesis@authorHebrew}
+  {\LARGE \textbf{\iitthesis@authorHebrew}}
 
   \vspace*{\stretch{3}}
 
   \parbox{4in}{
      \normalsize
      \begin{center}
-       äåâù ìñğè äèëğéåï {\textemdash\relax} îëåï èëğåìåâé ìéùøàì \\
+       ×”×•×’×© ×œ×¡× ×˜ ×”×˜×›× ×™×•×Ÿ {\textemdash\relax} ××›×•×Ÿ ×˜×›× ×•×œ×•×’×™ ×œ×™×©×¨××œ \\
        \iitthesis@JewishDateHebrew
-       \hspace{0.75cm} çéôä \hspace{0.75cm}
+       \hspace{0.75cm} ×—×™×¤×” \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew
      \end{center}
   }
  \end{center}
- \end{otherlanguage}
+ \end{hebrew}
 }
 
 \newcommand{\makeacknowledgementsHebrew}{
-  \begin{otherlanguage}{hebrew}
+  \begin{hebrew}
   \noindent \iitthesis@supervisionHebrew
 
   \ifx\iitthesis@publicationInfoHebrew\@empty
@@ -739,7 +760,7 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
     %\vspace*{\stretch{1}}
     \medskip
     \begin{center}
-    \textbf{\Large \textsc{úåãåú}}
+    \textbf{\Large \textsc{×ª×•×“×•×ª}}
     \end{center}
     \noindent
     \iitthesis@personalAcknowledgementHebrew
@@ -749,20 +770,22 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
     \vspace*{\stretch{1}}
   }
   \noindent \iitthesis@financialAcknowledgementHebrew
-  \end{otherlanguage}
+  \end{hebrew}
 }
 
 \newcommand{\makeabstractHebrew}{
-  \begin{otherlanguage}{hebrew}
-  \chapter*{ú÷öéø}
-  \addcontentsline{cot}{chapter}{ú÷öéø òáøé}
+  \begin{hebrew}
+  \chapter*{×ª×§×¦×™×¨}
+  \addcontentsline{cot}{chapter}{×ª×§×¦×™×¨ ×¢×‘×¨×™}
+  \begin{english}
   \addcontentsline{toc}{chapter}{Hebrew Abstract}
+  \end{english}
   \setlength{\parindent}{0pt}
   \setlength{\parskip}{10pt}
 
   \iitthesis@abstractHebrew
 
-  \end{otherlanguage}
+  \end{hebrew}
 }
 
 % ----------------------------------------------------------
@@ -783,31 +806,5 @@ notations listing here.} \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 %  \bcaption{hebrew}{english}
 %  \bchapternn{hebrew}{english} - replaces \chapter*
 %  \bsectionnn{hebrew}{english} - replaces \section*
-
-
-% Ido Tal says:
-% This is a hack. The proper thing to do would be to get \section* to work.
-% For some reason, it doesn't, and I don't know how to fix this.
-% Eyal asks:
-% Doesn't bsectionnn work?
-\newcommand{\bsectionstar}[2]{
- \section*{#2}
- \addcontentsline{toc}{section}{#2}
- \addcontentsline{cot}{section}{#1}
-}
-
-% Ido Tal suggests the following commands to fix problems with captions
-
-% \bcaption{Hebrew caption}{English caption}
-\renewcommand{\bcaption}[2]{%
-  \caption[\protect\if@rl \R{#1}\protect\else \L{#2}\protect\fi]{%
-  \if@rl\R{#1} \else\L{#2}\fi}
-}
-
-% \bbcaption{Hebrew caption}{English: caption under figure/table}{English: entry Figures/Tables index}
-\newcommand{\bbcaption}[3]{%
-  \caption[\protect\if@rl \R{#1}\protect\else \L{#3}\protect\fi]{%
-  \if@rl\R{#1} \else\L{#2}\fi}
-}
 
 \endinput

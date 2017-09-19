@@ -115,16 +115,7 @@
 % example, hyperref must load after algorithmicx, but before ntheorem
 
 \RequirePackage{hyperref}
-% hyperref and babel conflict over the \L command. \L is basically used for
-% the Polish and East-European 'suppressed L' or 'crossed L' character.
-% hyperref redfines the \L command to adjust it to use with PDFs. babel,
-% however, uses to wrap Left-to-Right text within a Right-to-Left region;
-% this is a bad choice by babel, but let's support babel over hyperref since
-% we're more interested in Hebrew than in Polish or Ukranian...
-\let\suppressedL\L
-\def\L{\protect\pL}
-
-\RequirePackage[hyperref,thmmarks]{ntheorem}
+%\RequirePackage[hyperref,thmmarks]{ntheorem} % must be loaded before bidi
 \RequirePackage{amssymb} % for \blacksquare
 \RequirePackage{aliascnt}
 \RequirePackage{mathtools}
@@ -323,9 +314,7 @@
  \newcommand*{\disabledlinksL}[1]{%
    \begingroup%
    \disablehyperlinks%
-   % having trouble with babel's \L command - we're getting an L letter with
-   % a diagonal line crossing it... \pL is its protected version.
-   \pL{#1}%
+   \textenglish{#1}%
    \endgroup%
  }
  \newcommand*{\disabledlinks}[1]{%

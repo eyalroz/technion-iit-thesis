@@ -12,7 +12,7 @@ Basically, you just compile it using `xelatex`. The template should compile well
 
 The build tool should invoke the appropriate executable repeatedly (including `bibtex`, `xelatex` etc.) until building has concluded or an error is encountered. The template, as distributed, should compile without error (but with some warnings); once you've compiled it you have a `thesis.pdf` file, which you should read for additional information.
 
-## "Ok, I've compiled the template; what next?"
+### "Ok, I've compiled the template; what next?"
 
 You modify it until it becomes your own actual thesis:
 
@@ -98,4 +98,4 @@ README.md
 makezip.sh
 makezip.bat
 	Used to create a ZIP archive of the template
-``
+```

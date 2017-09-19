@@ -5,6 +5,10 @@
 %% according to the specifications of the Technion -
 %% Israeli Institute of Technology
 %%
+%% GitHub repository:
+%% https://github.com/eyalroz/technion-iit-thesis/
+%%
+%%
 %% Maintainer:
 %% Eyal Rozenberg       <eyalroz@technion.ac.il>
 %%                      <eyalroz@riseup.net>
@@ -15,80 +19,6 @@
 %% Contributor:
 %% Ido Tal              <idotal@ee.technion.ac.il>
 %%
-%% Notes:
-%% - This class has a hard-coded default of using A4 paper,11pt-size font
-%%   for the body text, and 'one-and-a-half' line spacing. This meets Technion
-%%   regulations, and it doesn't seem we need an option to change it.
-%% - This class is being maintained within a repository containing a complete
-%%   template for a thesis, at https://github.com/eyalroz/technion-iit-thesis
-%%   where you can find additional information as well as report issues
-%%   and make suggestions.
-%%
-%% To Do - Check recent changes:
-%% - Make sure the openright option for the report class doesn't cause weird
-%%   behavior with the Hebrew part
-%% - Figure out why we can't set the had-figures label using AtEndDocument
-%%   (we currently do it when setting the backmatter, as a workaround)
-%%
-%% To Do - Conformance with Technion regulations:
-%% - Technion regulations require some text regarding the publications in
-%%   which results from the thesis have been published. The regulations are
-%%   extremely vague regarding the required layout of this information on
-%%   the page, and somewhat vague and confusing regarding the content as well
-%%   currently, there is a very rudimentary mechanism in place as part of this
-%%   class to include such information. The iitthesis-extra style file
-%%   includes an \butcheredbibliography commands which produces a
-%%   mini-bibliography of just those cite keys passed to it - those keys
-%%   relevant to meeting the requirement. See its use in the example thesis.
-%% - The graduate school and the Technion printing unit approve of the margins
-%%   set here, but no official opinion/regulation on margin sizes has been
-%%   issued. You should try and get them to issue it.
-%% - Consider adding a Technion crest graphic somewhere (and possibly even
-%%   faculty-specific crests). This is not a requirement, but one wonders
-%%   whether the Technion doesn't want this somehow.
-%%
-%% To Do - LaTeX quality improvements:
-%% - Consider switching from report class to something else (KOMAscript's
-%%   scrreprt or perhaps memoir)
-%% - There's code duplication for the front matter vs the front cover; we
-%%   should have a single macro with an option for hiding what doesn't appear
-%%   on the front cover
-%% - Adding a Table-of-Contents makes the (first?) page on which it begins
-%%   be numbered. We need to avoid that; for now we use an ugly workaround
-%%   which should be replaced by an actual solution
-%%
-%% To Do - Robustness:
-%% - Ensure the auto-list-of-figures works with the page reversal feature
-%% - Use today's Hebrew and Gregorian month and year if the user does not
-%%   specify the submission months/dates
-%%
-%% To Do - User experience & features:
-%% - Allow for use of the draft package
-%% - Have user specify just the submission date, and calculate the Hebrew
-%%   and Gregorian months for that date
-%% - Make it so that when the class user does not define a notations &
-%%   abbreviations ``chapter'', the class does not create it in the output -
-%%   without requiring a noabbrevs option
-%% - Give an informative error message when no degree is specified
-%% - Allow for the optional inclusion of a Hebrew Table-of-Contents and
-%%   List-of-Figures, even though these are no longer required by Technion
-%%   regulations.
-%% - Possible parts of a thesis not currently supported: Glossary; Index;
-%%   Dedication (separate from acknowledgements); List of Tables
-%% - Need to give more attentinon to the inclusion of figures
-%% - Need to give more attentinon to the abbreviations page, maybe add an
-%%   abbreviation macro and automagically generate the abbrevs page if
-%%   necessary
-%%
-%% To Do - Miscellany:
-%% - Perhaps move the code regarding publication info from
-%%   iitthesis-extra.sty into here, and make the publication info listing
-%%   default behavior of the class?
-%% - Give more consideration to line and paragraph spacing (perhaps something
-%%   more refined than setting \onehalfspacing ) ?
-%% - When makefrontmatter'ing, and if we're creating a PDF, use \pdfinfo
-%%   to set the PDF file's meta-data
-%% - Unify the indentation in this file
 %%
 
 \def\filename{iitthesis}

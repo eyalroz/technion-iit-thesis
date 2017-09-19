@@ -9,6 +9,7 @@
 
 ## Intermediate documents:
 *.dvi
+*.xdv
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
@@ -97,8 +98,5 @@ sympy-plots-for-*.tex/
 # archives
 *.zip
 *.tar.*
-
-# unknown
-*.xdv
 
 thesis.pdf

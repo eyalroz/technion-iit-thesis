@@ -105,21 +105,8 @@
 % The following package  is required for fixing a Hebrew bulleted list issue, see
 % https://tex.stackexchange.com/questions/53444/
 \RequirePackage{enumitem}
-% The following really shouldn't be loaded here, but we need it loaded before polyglossia 
-% due to a bug in amsmath - it expects @leqno to be a primitive, which, with polyglossia,
-% it no longer is; see https://tex.stackexchange.com/a/384805/5640
-\RequirePackage{amsmath} 
 \RequirePackage{fontspec}
-% The following really shouldn't be loaded here, but we need it loaded before the bidi
-% package due to some bug / misfeature; see https://tex.stackexchange.com/a/384805/5640
-\RequirePackage{float} 
 \RequirePackage{geometry} % Note: must be loaded before bidi
-% The following three packages must be loaded before bidi
-\RequirePackage{algorithmicx}
-\RequirePackage{hyperref}
-\RequirePackage[hyperref,thmmarks]{ntheorem} % must be loaded before bidi
-\RequirePackage{polyglossia}
-\RequirePackage{bidi}
 \RequirePackage{setspace}
 \RequirePackage{atbegshi}
 
@@ -129,11 +116,22 @@
 
 % Polyglossia & language settings
 
-\setmainlanguage[variant=british]{english} % Palestine was under British rule after all
-\setotherlanguage[numerals=arabic,calendar=gregorian]{hebrew}
-\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
-%\setmonofont[Script=Hebrew]{DejaVu Sans}% 
+% Note: We're not loading polyglossia right away, because the bidi package,
+% which polyglossia loads for Hebrew text, is very picky about when it
+% can be loaded. It must be loaded _after_ packages such as graphics,
+% amsmath, float, ntheorem and others; and since we're not going to
+% load all of these right away (in fact, we might not be loading them
+% at all - it's up to the document author whether s/he needs them or not)
+% we want to defer loading and using polyglossia until after the document
+% author has loaded whatever it is they intend to use
 
+\IfFileExists{polyglossia.sty}{}{\ClassError{\filename}{The polyglossia package is not available for loading}{}}
+\AtEndPreamble{
+ \usepackage{polyglossia}
+ \setmainlanguage{english} % Palestine was under British rule after all
+ \setotherlanguage[numerals=arabic,calendar=gregorian]{hebrew}
+ \newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
+}
 
 %--------------------------------
 
@@ -709,7 +707,7 @@
 \newcommand{\makeabstractHebrew}{
   \begin{hebrew}
   \setlist[itemize,1]{label={\fontfamily{cmr}\fontencoding{T1}\selectfont\textbullet}}
-  \chapter*{תקציר}
+  \chapter*{\texthebrew{תקציר}}
   \addcontentsline{cot}{chapter}{תקציר עברי}
   \begin{english}
   \addcontentsline{toc}{chapter}{Hebrew Abstract}

@@ -116,19 +116,19 @@
 
 % Polyglossia & language settings
 
-% Note: We're not loading polyglossia right away, because the bidi package,
-% which polyglossia loads for Hebrew text, is very picky about when it
-% can be loaded. It must be loaded _after_ packages such as graphics,
-% amsmath, float, ntheorem and others; and since we're not going to
-% load all of these right away (in fact, we might not be loading them
-% at all - it's up to the document author whether s/he needs them or not)
-% we want to defer loading and using polyglossia until after the document
-% author has loaded whatever it is they intend to use
+% Note: We're not indicating the use of Hebrew right away, because the 
+% bidi package, which polyglossia loads for Hebrew text, is very picky 
+% about when it can be loaded. It must be loaded _after_ packages such as
+% graphics, amsmath, float, ntheorem and others; and since we're not 
+% going to load all of these right away (in fact, we might not be loading 
+% them at all - it's up to the document author whether s/he needs them or 
+% not) we want to defer loading and using polyglossia until after the 
+% document author has loaded whatever it is they intend to use
 
-\IfFileExists{polyglossia.sty}{}{\ClassError{\filename}{The polyglossia package is not available for loading}{}}
+\RequirePackage{polyglossia}
+\setmainlanguage{english} % Palestine was under British rule after all
+\IfFileExists{bidi.sty}{}{\ClassError{\filename}{The bidi package is not available for loading}{}}
 \AtEndPreamble{
- \usepackage{polyglossia}
- \setmainlanguage{english} % Palestine was under British rule after all
  \setotherlanguage[numerals=arabic,calendar=gregorian]{hebrew}
  \newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 }

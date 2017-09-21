@@ -278,6 +278,9 @@
 
 
 \newcommand{\makefrontmatter}{%
+ \makeatletter
+ \hypersetup{pdftitle={\iitthesis@titleEnglish},pdfauthor={\iitthesis@authorEnglish}}
+ \makeatother
 
  \pagestyle{empty}
 

@@ -1,4 +1,5 @@
 ## Core latex/pdflatex auxiliary files:
+aux/
 *.aux
 *.lof
 *.fol
@@ -32,6 +33,7 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+.refresh
 
 ## Auxiliary and intermediate files from other packages:
 

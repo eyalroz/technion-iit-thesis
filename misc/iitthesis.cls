@@ -131,6 +131,10 @@
 \AtEndPreamble{
  \setotherlanguage[numerals=arabic,calendar=gregorian]{hebrew}
  \newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
+ % These next two lines fix an issue with equation numbering parentheses;
+ % see: https://tex.stackexchange.com/a/141437/5640
+ \def\maketag@@@#1{\hbox{\m@th\normalfont\LRE{#1}}}
+ \def\tagform@#1{\maketag@@@{(\ignorespaces#1\unskip)}}
 }
 
 %--------------------------------

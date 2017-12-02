@@ -12,6 +12,8 @@ Basically, you just compile it using `xelatex`. The template should compile well
 
 The build tool should invoke the appropriate executable repeatedly (including `bibtex`, `xelatex` etc.) until building has concluded or an error is encountered. The template, as distributed, should compile without error (but with some warnings); once you've compiled it you have a `thesis.pdf` file, which you should read for additional information.
 
+Alternatively, if you're on a Unix-like system, you can use the Makefile; see [this description](https://github.com/eyalroz/technion-iit-thesis/pull/19). If you don't know what a Makefile is - never mind.
+
 ### "Ok, I've compiled the template; what next?"
 
 You modify it until it becomes your own actual thesis:
@@ -95,6 +97,8 @@ misc/
 	my-thesis-specific.tex	Your own macros/definitions specific to just the thesis
 README.md	
 	this file
+Makefile
+        Does some build/cleaning automation for you
 makezip.sh
 makezip.bat
 	Used to create a ZIP archive of the template

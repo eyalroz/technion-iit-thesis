@@ -97,6 +97,16 @@
 % {algorithm}, which has the caption and delimiting rules
 \RequirePackage[chapter]{algorithm}
 
+%This should allow math formulas (with $ sign) in verbatim blocks
+%see: https://tex.stackexchange.com/questions/149710/how-to-write-math-symbols-in-a-verbatim
+\RequirePackage{listings}
+\usepackage{listings}% http://ctan.org/pkg/listings
+\lstset{
+	basicstyle=\ttfamily,
+	mathescape
+}
+
+
 \providecommand*{\toclevel@algorithm}{0}
 
 % A mechanism for setting the font size in algorithms

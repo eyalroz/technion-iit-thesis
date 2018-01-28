@@ -38,6 +38,7 @@ pvc: aux $(MAIN).tex .refresh $(SOURCES) $(FIGURES)
 
 # Create a symlink for the final PDF
 symlink: aux
+	rm $(OUTPUT_FILENAME).pdf
 	ln -Fs $(AUXDIR)/$(MAIN).pdf $(OUTPUT_FILENAME).pdf
 
 clean:

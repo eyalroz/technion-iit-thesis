@@ -22,7 +22,8 @@ CONTINUOUS=-pvc
 
 MAIN=thesis
 OUTPUT_FILENAME=thesis
-SOURCES := Makefile $(shell find . -name '*.tex')
+SOURCES := Makefile $(shell find . -regex '.*\.\(tex\|cls\|sty\|bib\)')
+ADDITIONAL_FILES := README.md
 FIGURES := $(shell find graphics/* -type f)
 
 all: symlink once
@@ -38,19 +39,30 @@ pvc: aux $(MAIN).tex .refresh $(SOURCES) $(FIGURES)
 
 # Create a symlink for the final PDF
 symlink: aux
-	rm $(OUTPUT_FILENAME).pdf
+	rm -f $(OUTPUT_FILENAME).pdf
 	ln -Fs $(AUXDIR)/$(MAIN).pdf $(OUTPUT_FILENAME).pdf
 
 clean:
-	$(LATEXMK) -C $(MAIN)
+	$(LATEXMK) -C $(MAIN) -quiet
+	$(shell echo "find . -name '*.aux' -print0 | xargs -0 rm -f")
+	$(shell find . -name '*.aux' -print0 | xargs -0 rm -f)
 	rm -rf aux
 	rm -f .refresh
 	rm -f $(MAIN).pdfsync
 	rm -rf *~ *.tmp
-	rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk
-	rm -rf `biber --cache`
+	rm -f *.bbl *.blg *.end *.fls *.log *.out *.fdb_latexmk *.cb *.thm
+# not removing the biber cache - it's not guaranteed that biber is even available,
+# or that biber --cache gives something meaningful
 
 aux:
 	mkdir -p aux aux/front aux/back aux/misc aux/main
+
+$(MAIN).zip: $(SOURCES) $(FIGURES) $(ADDITIONAL_FILES)
+	rm -f $(MAIN).zip
+	zip $(MAIN).zip $(SOURCES) $(FIGURES) $(ADDITIONAL_FILES)
+
+archive: $(MAIN).zip
+zip: $(MAIN).zip
+
 
 .PHONY: clean once symlink all aux

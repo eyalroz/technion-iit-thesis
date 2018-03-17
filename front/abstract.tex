@@ -1,5 +1,20 @@
-% Just write down your abstract here, no special commands necessary except for the \abstractEnglish{
-% before this text is used and a closing } at the end of it
+% This file contains the abstract part of your thesis - in English and
+% in Hebrew (within \abstractEnglish and \abstractHebrew respectively).
+%
+% Notes:
+% - This file uses the UTF-8 character set encoding for the Hebrew
+%   text not to get garbled. Keep it that way.
+% - Assuming your thesis is mainly in English, Graduate School 
+%   regulations mandate the following lengths for the abstracts:
+%
+%      Language    Min. Length   Max. Length
+%     ---------------------------------------
+%      English       200 words     500 words
+%      Hebrew      1,000 words   2,000 words
+%
+%   so that the Hebrew abstract typically has some content from
+%   the English introduction and an overview of the results, not
+%   present in the English; it is not just a translation.
 
 \abstractEnglish{
 
@@ -9,15 +24,14 @@ So this should contain a few more paragraphs...
 
 \lipsum[10-12]
 
-}
+} % end of English abstract
 
-% Note that various commands don't work that well in Hebrew. Specifically,
-% if you're using hyperref, you'll have trouble with \url, \autoref, \cite
-% and friends. iitthesis-extra.sty has a workaround: the \disabledlinksL
-% command. See the .sty for details, or:
-% http://tex.stackexchange.com/q/32466/5640 for
 
 \abstractHebrew{
+
+% Note that certain commands don't work that well in Hebrew "mode".
+% If this happens to you, try wrapping the command within a
+% \textenglish{ } - that may (or may not) help.
 
 כאן יבוא תקציר מורחב בעברית (כאשר שפת החיבור העיקרית היא אנגלית). היקף התקציר יהיה \textenglish{1000-2000} מילים. התקציר יהווה שלמות בפני עצמו ויהיה מובן לקורא בעל ידיעות כלליות בנושא.
 
@@ -43,4 +57,4 @@ So this should contain a few more paragraphs...
 
 ... ואילו עמוד זה של התקציר-המורחב בעברית \textenglish{---} שהינו העמוד השני בתקציר-המורחב מבחינת רצף התוכן, ונמצא ראשון בקובץ ה-\textenglish{PDF} \textenglish{---} ממוספר ב-\textenglish{ii}. המטרה במספור בסדר ה"הפוך" היא, שבעת ההדפסה לא יהיה צורך להפוך דפים, לשנות את סדרם וכולי \textenglish{---} רק להדפיס ולכרוך.
 
-}
+} % end of Hebrew abstract

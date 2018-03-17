@@ -19,30 +19,20 @@
 
 
 % Definitions of info fields for the thesis - subject, advisor,
-% faculty, acknowledgements, etc. etc. This file must contain Hebrew
-% text, so the question of its character set encoding is significant.
-% This templated uses the iso-8859-8-i charset (i.e. single-byte logical 
-% Hebrew; it's about the same as the windows-1255 codepage, but not the
-% same as UTF-8) - and this works with MikTeX 2.9 and using pdfelatex.
-% With your TeX distribution you might need to create files in the
-% UTF-8 charset.
+% faculty, acknowledgements, etc. etc. The thesis-fields file 
+% contains Hebrew text, and should use the UTF-8 character set
+% encoding (not iso-8859-8-i or windows codepage 1255).
 \include{misc/thesis-fields}
 
 % Personal acknowledgements (are only used for the post-exam
 % version)
 \include{front/personal-acks}
 
-% The abstract in Hebrew and in English should have its own file.
+% A separate file for the abstract - in English and in Hebrew, so
+% you must make sure it's also in the UTF-8 character set encoding.
 %
-% Notes:
-% - You can split this one, and have separate files for the English
-%   and the Hebrew abstract
-% - regulations require the English abstract contain between 200 and
-%   500 words, and the Hebrew abstract contain between 1,000 and 2,000
-%   words (making it something between an abstract and an introduction
-%   with an overview of results).
-% - Be careful with links in Hebrew text (wrap them in \L{}).
 \include{front/abstract}
+
 \include{front/abbrevs}
 
 % Additional machinery relevant to any thesis

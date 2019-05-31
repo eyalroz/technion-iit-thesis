@@ -231,34 +231,35 @@
  % it doesn't always get things right, and there are some lowercase/
  % uppercase issues, so we need to help it a little
 
- % We're using \providecommand because sometimes the document class
- % or some package has already defined some of these
- \providecommand{\footnoteautorefname}{Footnote}
- \providecommand{\footnotename}{Footnote}
- \providecommand{\chapterautorefname}{Chapter}
- \providecommand{\chaptername}{Chapter}
- \providecommand{\sectionautorefname}{Section}
- \providecommand{\sectionname}{Section}
- \providecommand{\subsectionautorefname}{Subsection}
- \providecommand{\subsectionname}{Subsection}
- \providecommand{\subsubsectionautorefname}{Subsubsection}
- \providecommand{\subsubsectionname}{Subsubsection}
- \providecommand{\propositionautorefname}{Proposition}
- \providecommand{\propositionname}{Proposition}
- \providecommand{\algorithmautorefname}{Algorithm}
- \providecommand{\algorithmname}{Algorithm}
+ % We're forcing the capitalization here; if you'd rather not force it -
+ % replace \def\fooautorefname{Foo} with \providecommand{\fooautorefname}{Foo}
 
- \providecommand{\observationautorefname}{Observation}
- \providecommand{\observationname}{Observation}
- \providecommand{\lemmaname}{Lemma}
- \providecommand{\corollaryname}{Corollary}
- \providecommand{\claimname}{Claim}
- \providecommand{\examplename}{Example}
- \providecommand{\definitionname}{Definition}
- \providecommand{\propositionname}{Proposition}
- \providecommand{\hypothesisname}{Hypothesis}
- \providecommand{\conjecturename}{Conjecture}
- \providecommand{\factname}{Fact}
+ \def\footnoteautorefname{Footnote}
+ \def\footnotename{Footnote}
+ \def\chapterautorefname{Chapter}
+ \def\chaptername{Chapter}
+ \def\sectionautorefname{Section}
+ \def\sectionname{Section}
+ \def\subsectionautorefname{Subsection}
+ \def\subsectionname{Subsection}
+ \def\subsubsectionautorefname{Subsubsection}
+ \def\subsubsectionname{Subsubsection}
+ \def\propositionautorefname{Proposition}
+ \def\propositionname{Proposition}
+ \def\algorithmautorefname{Algorithm}
+ \def\algorithmname{Algorithm}
+
+ \def\observationautorefname{Observation}
+ \def\observationname{Observation}
+ \def\lemmaname{Lemma}
+ \def\corollaryname{Corollary}
+ \def\claimname{Claim}
+ \def\examplename{Example}
+ \def\definitionname{Definition}
+ \def\propositionname{Proposition}
+ \def\hypothesisname{Hypothesis}
+ \def\conjecturename{Conjecture}
+ \def\factname{Fact}
 
  % If you put a lemma/theorem/etc. inside an \item of a list, \autoref will refer
  % to this lemma as though it had been the item; to fix that, put the following after \item:
@@ -712,6 +713,7 @@
 \showboxbreadth=50
 
 % -----------------------------------------------------------------
+
 
 \endinput
 %%

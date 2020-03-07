@@ -8,17 +8,6 @@
 % thesis
 
 \usepackage{lipsum}
-% ... needs a workaround for babel compatibility, see:
-% http://tex.stackexchange.com/q/49214/5640
-\makeatletter
-\renewcommand\lips@dolipsum{%
-  \ifnum\value{lips@count}<\lips@max\relax
-    \addtocounter{lips@count}{1}%
-    \csname lipsum@\romannumeral\c@lips@count\endcsname
-    \lips@dolipsum
-  \fi
-}
-\makeatother
 
 % Another dummy text generator...
 \def\qbfox#1{%

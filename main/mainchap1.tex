@@ -9,15 +9,17 @@ You might have a per-chapter mini-intro, possibly tying in to the relevant part 
 
 \lipsum[1]
 
-Let's cite a source: \cite{Yao1977}.
-
-An equation...
+Let's cite a source: \cite{Yao1977}. And now,  let's introduce a (numbered) equation...
 \begin{align}
 \label{eq:emc2}
 e &= mc^2
 \end{align}
 
-In \autoref{sec:thm-like} below, we will state some theorems
+\begin{note}
+	Are you seeing a problem with the equation numbering? In some TeX processors and on some platforms, there may be a layout error, so that instead of ``(3.1)'' you get ``)3.1)'' or some other flipping of directions. Specifically, \url{http://overleaf.com} suffers from this problem (at least until 2020). Please make sure and use an appropriate TeX distribution that's up-to-date. Specifically, recent TeXLive versions work fine. On Overleaf, you can switch TeXLive versions using the main menu.
+\end{note}
+
+In \autoref{sec:thm-like} below, we will state some theorems.
 
 \section{Results... and theorem-like environments}
 \label{sec:thm-like}

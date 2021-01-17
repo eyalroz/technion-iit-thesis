@@ -65,18 +65,20 @@ Even though \autoref{lem:first} and \autoref{def:first} share the ``same'' count
 Here's a proof of the lemma:
 \begin{proof}%[lem:natural:blowups-preserve-distance-on-average]
 \lipsum[2]
-It's common to conclude proofs with a ``quod erat demonstratum'' (QED) symbol. The command will be \verb|\qed| (although you can arrange for this symbol to be appended automatically to all proofs with some \LaTeX{} trickey). \qed
+	It's common to conclude proofs with a ``quod erat demonstratum'' (QED) symbol --- typically a full or an empty black square. To do so, append the command \verb|\qed| after the last sentence of your proof; or, alternatively, you can use some \LaTeX{} trickery in the definition of the proof environment to ensure this symbol is appended to all proofs. This is done in the \texttt{misc/iitthesis-extra.sty} style file, which is used by this template. You will see the result as a black square at the end of this proof environment.
 \end{proof}
 
-
-And here's a proof of \autoref{thm:first} using the \verb|proofof| environment.
+Now here's a proof of \autoref{thm:first} using the \verb|proofof| environment.
 \begin{proofof}[thm:first]
 \lipsum[3]
 \end{proofof}
 
+\begin{note}There may currently be a problem getting the \verb|\qed| symbol to appear if your proof environment ends with certain display-mode-math environments, such as \verb|align*|.
+\end{note}
+
 \begin{proposition}
 \label{prop:first}
-A proposition environment. \qbfox{2}
+This is a proposition environment. \qbfox{2}
 \end{proposition}
 
 \begin{observation}
@@ -84,7 +86,7 @@ A proposition environment. \qbfox{2}
 The moon revolves around the earth.
 \end{observation}
 
-There are several other theorem-like environments, of various kinds, defined in \texttt{iitthesis-extra.sty}.
+There are several other theorem-like environments, of various kinds, defined in \texttt{misc/iitthesis-extra.sty}.
 
 \subsection{A subsection}
 

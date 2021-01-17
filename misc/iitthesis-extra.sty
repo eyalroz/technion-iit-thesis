@@ -452,27 +452,32 @@
  % option (and you can't use the amsthm option, it's broken). The definition
  % is lifted from the ntheorem sources, with a small correction to get a
  % dot at the end of the proof name. See the discussion at:
- % http://tex.stackexchange.com/questions/30262/
+ %
+ %   http://tex.stackexchange.com/q/30262/
+ %
+ % but also at:
+ %
+ %   https://tex.stackexchange.com/q/579204/5640/
+ %
+ % regarding how this fails when the proof ends with an {align*} environment.
 
- \newcommand{\openbox}{\leavevmode
-   \hbox to.77778em{%
-   \hfil\vrule
-   \vbox to.675em{\hrule width.6em\vfil\hrule}%
-   \vrule\hfil}}
- \gdef\proofSymbol{\openbox}
+ \newcounter{proof}%
+ \newcounter{currproofctr}%
+ \newcounter{endproofctr}%
+ \gdef\proofSymbol{\ensuremath{\blacksquare}}
  \newcommand{\proofname}{Proof}
- \newcounter{proof}\newcounter{currproofctr}\newcounter{endproofctr}%
  \newenvironment{proof}[1][\proofname]{
-  \th@nonumberplain
-  \def\theorem@headerfont{\itshape}%
-  \normalfont
-  \@thm{proof}{proof}{{#1}.}}%
-   {\@endtheorem} % and this ends the definition of the proof environment
+   \th@nonumberplain
+   \def\theorem@headerfont{\itshape}%
+   \normalfont
+   \theoremsymbol{\ensuremath{_\blacksquare}}
+   \@thm{proof}{proof}{#1}}%
+  {\@endtheorem}
 
-\renewcommand\proofSymbol{\ensuremath{\blacksquare}}
-\qedsymbol{\ensuremath{\blacksquare}}
+ \qedsymbol{\proofSymbol}
 
-}
+}% end of definitions for when ntheorem is loaded
+% ... and now for definitions in the case of amsthm being loaded:
 {
  % amsthm-based
  %

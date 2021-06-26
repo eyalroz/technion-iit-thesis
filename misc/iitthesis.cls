@@ -207,13 +207,16 @@
       \box\AtBeginShipoutBox\kern\c@page sp}%
   \fi
 }%
+\providebool{xpg@inbiditable}
 \renewcommand{\RPtrue}{%
+  \booltrue{xpg@inbiditable}
   \clearpage
-  \ifRP\RPfalse\fi
-  \global\let\ifRP\iftrue
+    \ifRP\RPfalse\fi
+    \global\let\ifRP\iftrue
 }%
 \let\reversepageorder=\RPtrue%
 \renewcommand{\RPfalse}{%
+  \boolfalse{xpg@inbiditable}
   \clearpage
   \global\let\ifRP\iffalse
   \setbox\RPbox\vbox{\unvbox\RPbox

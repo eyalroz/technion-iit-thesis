@@ -75,6 +75,9 @@
   \boolfalse{iitthesis-abbrevs}
 }
 
+\newbool{iitthesis-keep-unused-abbrevs}
+\boolfalse{iitthesis-keep-unused-abbrevs}
+
 \newbool{iitthesis-includeack}
 \booltrue{iitthesis-includeack}
 \DeclareOption{beforeDefense}{
@@ -109,6 +112,10 @@
 \RequirePackage{geometry} % Note: must be loaded before bidi
 \RequirePackage{setspace}
 \RequirePackage{atbegshi}
+\ifbool{iitthesis-abbrevs}{
+  \RequirePackage[automake]{glossaries-extra}
+  \makeglossaries
+}{}
 
 \iitthesis@geometry
 
@@ -168,6 +175,20 @@
   \addcontentsline{toc}{chapter}{List of Figures}%
   }
 }%
+
+% By default, the list of abbreviations will only include those terms you have
+% actually used in the body of your thesis. If this command is invoked, then
+% _all_ abbreviations you have defined (by default, in front/abbrevs.tex) will
+% be listed, even if they have not been used in the body of your thesis.
+\newcommand{\keepUnusedAbbreviations}{
+% This doesn't work for some reason:
+%  \AtEndDocument{\glsaddallunused}
+% But this does (coupled with a condition invocation of \glsaddallunused 
+% in \makebackmatter):
+% \ifbool{iitthesis-abbrevs}{
+   \booltrue{iitthesis-keep-unused-abbrevs}
+% }{}
+}
 
 %--------------------------------
 
@@ -270,7 +291,6 @@
 \iitthesis@thesisdatafield{abstractEnglish}{Abstract of the thesis.}
 % Regulations require the Hebrew abstract contain 1,000-2,000 words.
 \iitthesis@thesisdatafield{abstractHebrew}{תקציר החיבור.}
-\iitthesis@thesisdatafield{abbreviationsAndNotation}{Notation and Abbreviations listing here.}
 \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 % the following should be a comma-separate list of relative filenames,
 % e.g. {backmatter/compsci.bib,backmatter/math.bib,specific.bib}
@@ -423,6 +443,9 @@
     % now outputting the reversed pages and resuming normal order
     % (although we have no pages left...)
 
+ \ifbool{iitthesis-keep-unused-abbrevs}{
+   \glsaddallunused
+ }{}
 }
 
 %--------------------------------
@@ -550,12 +573,45 @@
  \iitthesis@abstractEnglish
 }
 
-\newcommand{\makenotationAndAbbreviations}{%
- \chapter*{Notation and Abbreviations}
- \addcontentsline{toc}{chapter}{Notation and Abbreviations}
- \addcontentsline{cot}{chapter}{רשימת סמלים וקיצורים}
- \iitthesis@abbreviationsAndNotation
-}
+\ifbool{iitthesis-abbrevs}{
+
+  \newcommand*{\formatglossarydescription}[1]{%
+    \ifglsfieldeq{#1}{long}{}{%
+      % Empty acronym long name, so show only the description
+      \glossentrydesc{#1}%
+    }{% else
+      \glsentrylong{#1} (\glossentrydesc{#1})%
+    }%
+  }
+
+  % based on https://tex.stackexchange.com/a/565077
+  \newglossarystyle{iitthesis}{%
+      \renewenvironment{theglossary}%
+      {\begin{longtable}{p{2cm}@{:\quad}lp{\glspagelistwidth}}}%
+          {\end{longtable}}%
+      \renewcommand*{\glossaryheader}{%                   setting the table's header
+          %\bfseries  & \bfseries Meaning \bfseries Description
+          %\\\tabularnewline\endhead
+          }%
+      \renewcommand*{\glsgroupheading}[1]{}%              no heading between groups
+      \renewcommand*{\glossentry}[2]{%                    main entries displayed
+          \textbf{\glstarget{##1}{\glossentryname{##1}}}% name
+          & % meaning
+          \formatglossarydescription{##1}% description
+          & ##2 % page list
+          \tabularnewline%                                end of row
+      }%
+      \renewcommand*{\glsgroupskip}{}%                    no distance between groups
+  }
+
+  \renewcommand{\glossarysection}[2][]{}
+  \newcommand{\makenotationAndAbbreviations}{%
+   \chapter*{Notation and Abbreviations}
+   \addcontentsline{toc}{chapter}{Notation and Abbreviations}
+   \addcontentsline{cot}{chapter}{רשימת סמלים וקיצורים}
+   \printglossary[title=,style=iitthesis]
+  }
+}{}
 
 % Like \cleardoublepage, but instead of getting you to the next recto
 % page, it gets you to the next verso page; see:

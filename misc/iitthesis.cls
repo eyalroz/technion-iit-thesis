@@ -22,7 +22,7 @@
 %%
 
 \def\filename{iitthesis}
-\def\fileversion{v0.9.1}
+\def\fileversion{v0.10}
 \def\filedate{2022/01/14}
 \NeedsTeXFormat{LaTeX2e}
 \edef\iitthesis@TechnionIITThesis{%
@@ -270,7 +270,7 @@
 \iitthesis@thesisdatafield{abstractEnglish}{Abstract of the thesis.}
 % Regulations require the Hebrew abstract contain 1,000-2,000 words.
 \iitthesis@thesisdatafield{abstractHebrew}{תקציר החיבור.}
-\iitthesis@thesisdatafield{abbreviationsAndNotation}{Abbreviations and notations listing here.} 
+\iitthesis@thesisdatafield{abbreviationsAndNotation}{Notation and Abbreviations listing here.}
 \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 % the following should be a comma-separate list of relative filenames,
 % e.g. {backmatter/compsci.bib,backmatter/math.bib,specific.bib}
@@ -313,7 +313,7 @@
  \cleardoublepage
 
  \ifbool{iitthesis-abbrevs}{
-  \makeabbreviationsAndNotation
+  \makenotationAndAbbreviations
   \cleardoublepage
  }{ }
 }
@@ -550,10 +550,10 @@
  \iitthesis@abstractEnglish
 }
 
-\newcommand{\makeabbreviationsAndNotation}{%
- \chapter*{Abbreviations and Notations}
- \addcontentsline{toc}{chapter}{Abbreviations and Notations}
- \addcontentsline{cot}{chapter}{רשימת קיצורים וסמלים}
+\newcommand{\makenotationAndAbbreviations}{%
+ \chapter*{Notation and Abbreviations}
+ \addcontentsline{toc}{chapter}{Notation and Abbreviations}
+ \addcontentsline{cot}{chapter}{רשימת סמלים וקיצורים}
  \iitthesis@abbreviationsAndNotation
 }
 

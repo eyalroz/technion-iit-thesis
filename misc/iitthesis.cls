@@ -10,7 +10,7 @@
 %%
 %%
 %% Maintainer:
-%% Eyal Rozenberg       <eyalroz@technion.ac.il>
+%% Eyal Rozenberg       <eyalroz1@gmx.com>
 %%                      <eyalroz@riseup.net>
 %%
 %% Original author:
@@ -22,8 +22,8 @@
 %%
 
 \def\filename{iitthesis}
-\def\fileversion{v0.9}
-\def\filedate{2017/09/18}
+\def\fileversion{v0.9.1}
+\def\filedate{2022/01/14}
 \NeedsTeXFormat{LaTeX2e}
 \edef\iitthesis@TechnionIITThesis{%
 \filedate\space\fileversion\space - Technion IIT Thesis}

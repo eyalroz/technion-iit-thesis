@@ -50,7 +50,7 @@ This class was adopted as the [official Ph.D. thesis template](http://www.cs.tec
 
 ### Contributors
 
-* **Current maintainer**: [Eyal Rozenberg](mailto:eyalroz@technion.ac.il)
+* **Current maintainer**: [Eyal Rozenberg](mailto:eyalroz1@gmx.com)
 * **Original author**: Dan Kenigsberg
 * **Contributor**: [Ido Tal](mailto:idotal@ee.technion.ac.il)
 
@@ -59,12 +59,13 @@ This class was adopted as the [official Ph.D. thesis template](http://www.cs.tec
 
 | **If you have...**                                               | **then you should...**                                                                                                                                                                                                            |
 |------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| question about using the thesis template                         | write [the maintainer](mailto:eyalroz@technion.ac.il)                                                                                                                                                                             |
+| question about using the thesis template                         | write [the maintainer](mailto:eyalroz1@gmx.com)                                                                                                                                                                             |
 | bug / mistake you'd like to report                               | file it as a new issue on the [issues page](https://github.com/eyalroz/technion-iit-thesis/issues)                                                                                                                                |
 | suggestion or feature request regarding the template             | file it as a new issue on the [issues page](https://github.com/eyalroz/technion-iit-thesis/issues)                                                                                                                                |
 | question regarding the thesis submission process                     | Contact your department's graduate studies secretariat.                                                          |
 | question regarding the Graduate School's guidelines for theses | Contact the "conclusion-stage" department at the Graduate School (Contact info: [English](http://www.graduate.technion.ac.il/Eng/General_info/Contact_us.asp), [Hebrew](http://www.graduate.technion.ac.il/Heb/General/Contact_us.asp)) |
-| some other kind of feedback                                      | write [the maintainer](mailto:eyalroz@technion.ac.il)                                                                                                                                                                             |
+| the ability to help the maintainer get his `@technion.ac.il` email address back | write [the maintainer](mailto:eyalroz1@gmx.com)                                                                                                                                                                             |
+| some other kind of feedback                                      | write [the maintainer](mailto:eyalroz1@gmx.com)                                                                                                                                                                             |
 
 ## Directory and file layout
 

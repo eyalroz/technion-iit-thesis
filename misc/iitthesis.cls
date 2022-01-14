@@ -270,7 +270,6 @@
 \iitthesis@thesisdatafield{abstractEnglish}{Abstract of the thesis.}
 % Regulations require the Hebrew abstract contain 1,000-2,000 words.
 \iitthesis@thesisdatafield{abstractHebrew}{תקציר החיבור.}
-\iitthesis@thesisdatafield{abbreviationsAndNotation}{Abbreviations and notations listing here.} 
 \iitthesis@thesisdatafield{thesisbibstyle}{alpha}
 % the following should be a comma-separate list of relative filenames,
 % e.g. {backmatter/compsci.bib,backmatter/math.bib,specific.bib}
@@ -423,6 +422,10 @@
     % now outputting the reversed pages and resuming normal order
     % (although we have no pages left...)
 
+ % The glossary only includes the terms used in the text body by default. Comment out this
+ % line if you want this behavior. This has to be done at the end of the document
+ % to prevent the glossary page list to have spurious commas.
+ \glsaddallunused
 }
 
 %--------------------------------
@@ -550,11 +553,45 @@
  \iitthesis@abstractEnglish
 }
 
+% The glossaries package generates a glossary automatically and generates 
+% first use explanation of an acronym.
+\RequirePackage[automake]{glossaries-extra}
+
+\newcommand*{\formatglossarydescription}[1]{%
+  \ifglsfieldeq{#1}{long}{}{%
+    % Empty acronym long name, so show only the description
+    \glossentrydesc{#1}%
+  }{% else
+    \glsentrylong{#1} (\glossentrydesc{#1})%
+  }%
+}
+
+% based on https://tex.stackexchange.com/a/565077
+\newglossarystyle{iitthesis}{%
+    \renewenvironment{theglossary}%
+    {\begin{longtable}{p{2cm}@{:\quad}lp{\glspagelistwidth}}}%
+        {\end{longtable}}%
+    \renewcommand*{\glossaryheader}{%                   setting the table's header
+        %\bfseries  & \bfseries Meaning \bfseries Description
+        %\\\tabularnewline\endhead
+        }%
+    \renewcommand*{\glsgroupheading}[1]{}%              no heading between groups
+    \renewcommand*{\glossentry}[2]{%                    main entries displayed 
+        \textbf{\glstarget{##1}{\glossentryname{##1}}}% name
+        & % meaning
+        \formatglossarydescription{##1}% description
+        & ##2 % page list
+        \tabularnewline%                                end of row
+    }%
+    \renewcommand*{\glsgroupskip}{}%                    no distance between groups
+}
+
+\renewcommand{\glossarysection}[2][]{}
 \newcommand{\makeabbreviationsAndNotation}{%
  \chapter*{Abbreviations and Notations}
  \addcontentsline{toc}{chapter}{Abbreviations and Notations}
  \addcontentsline{cot}{chapter}{רשימת קיצורים וסמלים}
- \iitthesis@abbreviationsAndNotation
+ \printglossary[title=,style=iitthesis]
 }
 
 % Like \cleardoublepage, but instead of getting you to the next recto

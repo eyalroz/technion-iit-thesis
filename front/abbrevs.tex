@@ -1,9 +1,20 @@
-% Just write down your abbervations here - or comment-out the command
+% Just write down your abbervations and glossaries here - or comment-out the command
 
-\abbreviationsAndNotation{
-\begin{tabular}{p{2cm}@{:\quad}l}
-QED & quod erat demonstrandum (``what was to be shown'')\\
-$c$ & the speed of light \\
-$a\pm b$ & the closed interval $\left[a-b,a+b\right]$ \\
-\end{tabular}
+% Print long form of acronym first with short in parenthesis
+\setabbreviationstyle[acronym]{long-short}
+
+\makeglossaries
+
+\newacronym[%
+    description=``what was to be shown'']%
+    {qed}{QED}{quod erat demonstrandum}
+
+\newglossaryentry{symb:c}{%
+  name=$c$,%
+  description=the speed of light%
+}
+
+\newglossaryentry{symb:a-b}{%
+  name=\ensuremath{a \pm b},%
+  description=the closed interval \ensuremath{\left[a-b,a+b\right]}%
 }

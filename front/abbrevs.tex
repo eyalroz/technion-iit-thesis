@@ -1,9 +1,33 @@
-% Just write down your abbervations here - or comment-out the command
+% Use this file to create "glossary entries" for abbreviations and acronyms.
+% The entries defined here don't necessarily have to be used in the thesis.
 
-\abbreviationsAndNotation{
-\begin{tabular}{p{2cm}@{:\quad}l}
-QED & quod erat demonstrandum (``what was to be shown'')\\
-$c$ & the speed of light \\
-$a\pm b$ & the closed interval $\left[a-b,a+b\right]$ \\
-\end{tabular}
+\newacronym[%
+    description=``The Senate and People of Rome'']%
+    {spqr}{SPQR}{Senātus Populusque Rōmānus}
+
+\newacronym[%
+    description=``A technology used in data storage devices'']%
+    {smart}{SMART}{Self-Monitoring, Analysis and Reporting Technology}
+
+\newglossaryentry{symb:c}{%
+  name=$c$,%
+  description=the speed of light%
 }
+
+\newglossaryentry{symb:a-b}{%
+  name=\ensuremath{a \pm b},%
+  description=the closed interval \ensuremath{\left[a-b,a+b\right]}%
+}
+
+% --------------------------------
+
+% Commands below will control the behavior/appearance of the list of abbreviations and acronyms
+
+% Print long form of acronym first with short in parenthesis
+\setabbreviationstyle[acronym]{long-short}
+
+
+% Uncomment this command to have _all_ abbreviations and acronyms defined
+% in this file appear in the final list - rather than just the ones you
+% use in the thesis
+%\keepUnusedAbbreviations

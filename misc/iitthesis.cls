@@ -43,27 +43,37 @@
 % different degrees
 
 % A Ph.D. thesis is the default...
-\newcommand{\iitthesis@degreeEnglish}{Doctor of Philosophy}
-\newcommand{\iitthesis@degreeHebrew}{דוקטור לפילוסופיה}
+\newcommand{\iitthesis@degreeEnglish}{Unspecified degree}
+\newcommand{\iitthesis@degreeHebrew}{תואר שלא-צוין}
+\newbool{degree-specified}
+\boolfalse{degree-specified}
+
 \DeclareOption{PhD}{%
+  \booltrue{degree-specified}
+  \renewcommand{\iitthesis@degreeEnglish}{Doctor of Philosophy}
+  \renewcommand{\iitthesis@degreeHebrew}{דוקטור לפילוסופיה}
 }
 
 \DeclareOption{MSc}{%
+  \booltrue{degree-specified}
   \renewcommand{\iitthesis@degreeEnglish}{Master of Science in \iitthesis@disciplineEnglish}
   \renewcommand{\iitthesis@degreeHebrew}{מגיסטר למדעים ב\relax\iitthesis@disciplineHebrew}
 }
 
 \DeclareOption{MArch}{%
+  \booltrue{degree-specified}
   \renewcommand{\iitthesis@degreeEnglish}{Master of Architecture}
   \renewcommand{\iitthesis@degreeHebrew}{מגיסטר לארכיטקטורה}
 }
 
 \DeclareOption{MEcon}{%
+  \booltrue{degree-specified}
   \renewcommand{\iitthesis@degreeEnglish}{Master of Economics}
   \renewcommand{\iitthesis@degreeHebrew}{מגיסטר לכלכלה}
 }
 
 \DeclareOption{ME}{%
+  \booltrue{degree-specified}
   \renewcommand{\iitthesis@degreeEnglish}{Master of Engineering}
   \renewcommand{\iitthesis@degreeHebrew}{מגיסטר להנדסה}
 }
@@ -95,6 +105,11 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 
 \ProcessOptions\relax
+
+\ifbool{degree-specified}{
+}{
+	\ClassError {\filename} {No academic degree specified for the thesis} {When loading the `\filename' document class, you must specify (exactly) one of the package-supported academic degrees: MsC, ME, MEcon, MArch, PhD --- as a package option.}
+}
 
 \LoadClass[a4paper,11pt,twoside,openright]{report}
 

@@ -1,6 +1,9 @@
 % Use this file to create "glossary entries" for abbreviations and acronyms.
 % The entries defined here don't necessarily have to be used in the thesis.
 
+% Print long form of acronym first with short in parenthesis
+\setabbreviationstyle[acronym]{long-short}
+
 \newacronym[%
     description=``The Senate and People of Rome'']%
     {spqr}{SPQR}{Senātus Populusque Rōmānus}
@@ -28,10 +31,6 @@
 % --------------------------------
 
 % Commands below will control the behavior/appearance of the list of abbreviations and acronyms
-
-% Print long form of acronym first with short in parenthesis
-\setabbreviationstyle[acronym]{long-short}
-
 
 % Uncomment this command to have _all_ abbreviations and acronyms defined
 % in this file appear in the final list - rather than just the ones you

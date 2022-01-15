@@ -606,7 +606,11 @@
       % Empty acronym long name, so show only the description
       \glossentrydesc{#1}%
     }{% else
-      \glsentrylong{#1} (\glossentrydesc{#1})%
+      \ifglshasdesc{#1}{%
+        \glsentrylong{#1} (\glossentrydesc{#1})%
+      }{%
+        \glsentrylong{#1}%
+      }%
     }%
   }
 
@@ -633,6 +637,7 @@
   \renewcommand{\glossarysection}[2][]{}
   \newcommand{\makenotationAndAbbreviations}{%
    \chapter*{Notation and Abbreviations}
+   \label{chap:notation-and-abbreviations}
    \addcontentsline{toc}{chapter}{Notation and Abbreviations}
    \addcontentsline{cot}{chapter}{רשימת סמלים וקיצורים}
    \printglossary[title=,style=iitthesis]

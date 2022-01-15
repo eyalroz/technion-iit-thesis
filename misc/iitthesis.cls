@@ -587,14 +587,14 @@
   % based on https://tex.stackexchange.com/a/565077
   \newglossarystyle{iitthesis}{%
       \renewenvironment{theglossary}%
-      {\begin{longtable}{p{2cm}@{:\quad}lp{\glspagelistwidth}}}%
+      {\begin{longtable}{p{2cm}@{:\quad}p{\textwidth - 2cm - \glspagelistwidth}p{\glspagelistwidth}}}%
           {\end{longtable}}%
       \renewcommand*{\glossaryheader}{%                   setting the table's header
           %\bfseries  & \bfseries Meaning \bfseries Description
           %\\\tabularnewline\endhead
           }%
       \renewcommand*{\glsgroupheading}[1]{}%              no heading between groups
-      \renewcommand*{\glossentry}[2]{%                    main entries displayed
+      \renewcommand*{\glossentry}[2]{ %                   main entries displayed
           \textbf{\glstarget{##1}{\glossentryname{##1}}}% name
           & % meaning
           \formatglossarydescription{##1}% description

@@ -11,3 +11,14 @@ Let's define some concept we'll be using throughout the thesis.
 The \emph{von Neumann model} of a computer, also known as the \emph{Princeton architecture} is an architecture for digital computers, which consists of a processing units, containing an ALU and processing registers; a control unit consisting of an instruction register and a program counter; a memory unit which stores both data and instructions; and input-and-output mechanisms.
 \end{definition}
 
+\section{Acronyms and abbreviations}
+
+When defining a \gls{tla} for the first time (or an acronym with any number of
+letters), the \verb|\gls{tla}| macro of the \texttt{glossaries-extra} package
+generates its full form, with its acronym in parentheses. The acronym is defined
+in the \texttt{abbrevs.tex} file. The next time we use \gls{tla}, only its
+short form is printed. \Glspl{etla} can be capitlized or use the plural form
+with macros such as \verb|\Gls| or \verb|\glspl|.
+
+In addition, the \verb|\gls| macro adds the pages where a term is used to the
+\nameref{chap:notation-and-abbreviations} \autoref{chap:notation-and-abbreviations}.

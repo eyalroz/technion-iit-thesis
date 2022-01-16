@@ -13,12 +13,15 @@ The \emph{von Neumann model} of a computer, also known as the \emph{Princeton ar
 
 \section{Acronyms and abbreviations}
 
-When defining a \gls{tla} for the first time (or an acronym with any number of
-letters), the \verb|\gls{tla}| macro of the \texttt{glossaries-extra} package
-generates its full form, with its acronym in parentheses. The acronym is defined
-in the \texttt{abbrevs.tex} file. The next time we use \gls{tla}, only its
-short form is printed. \Glspl{etla} can be capitlized or use the plural form
-with macros such as \verb|\Gls| or \verb|\glspl|.
+Your thesis will typically have a set of significant terms, abbreviations and acronyms. Technion guidelines mandate that you place a list of these at the beginning of your thesis; and that they be defined upon first use. And, indeed, if you followed read this sample thesis carefuly thus far you should have seen ``\nameref{chap:notation-and-abbreviations}'' following the abstract.
 
-In addition, the \verb|\gls| macro adds the pages where a term is used to the
-\nameref{chap:notation-and-abbreviations} \autoref{chap:notation-and-abbreviations}.
+When writing your thesis, collect such terms and their definitions in the \texttt{front/abbrevs.tex} file --- using the commands \verb|\newacronym|,  \verb|\newabbreviation| and \verb|\newglossaryentry|; the latter command is used for symbols and short, but unabbreviated, terms.
+
+In the body of your thesis, your first use of a term will typically be where you want to also include the text of its definition. You don't need to repeat the definition you've already entered! Let's explain with an example: You've defined the term \gls{DIY} beforehand; when using it, you invoke the command \verb|\gls{DIY}|.\footnote{The 
+\texttt{\textbackslash{}gls} command originates in the \texttt{glossaries-extra} package, which is used to automate the handling of notation \& abbreviations.} This command does several things:
+\begin{itemize}
+	\item It ensures the term \gls{DIY} is included in the list of Notation \& Abbreviation, at the beginning of the thesis; the entry for the term will also include the page on which it first appears;
+	\item It produces the definition text; and finally
+	\item It adds the defined term --- \gls{DIY} --- in parentheses, after the definition.
+\end{itemize}
+In later invocations of \verb|\gls{DIY}|, only the short form (\gls{DIY}) will be printed, not the definition, and no parentheses. (This also means that if you move text around in your thesis you don't have to worry about defining on first use - that's already taken care of.) 

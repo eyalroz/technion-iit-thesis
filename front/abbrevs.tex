@@ -5,35 +5,41 @@
 % the package glossaries-extra is required. It is automatically included unless
 % the noabbrevs class option is used.
 
-% Print long form of acronym first with short in parenthesis
-\setabbreviationstyle[acronym]{long-short}
+% Optionally alter the style for typesetting abbreviations when using the \gls
+% command. Note you can also use multiple styles by categorizing abbreviations;
+% see the documentation for the glossaries-extras package at:
+% https://ctan.org/pkg/glossaries-extra
+%
+%\setabbreviationstyle[acronym]{long-short-sc}
 
 \newacronym[%
-    description=``The Senate and People of Rome'']%
-    {spqr}{SPQR}{Senātus Populusque Rōmānus}
+  description=``The Senate and People of Rome'']% The description does not appear anywhere by default
+  {spqr}% the key of the acronym (used with the \gls command for example)
+  {SPQR}% the short form of the acronym
+  {Senātus Populusque Rōmānus}% the long form of the acronym
 
-\newacronym[%
-    description=``A technology used in data storage devices'']%
-    {smart}{SMART}{Self-Monitoring, Analysis and Reporting Technology}
+\newacronym[description=A technology used in data storage devices]%
+  {smart}{SMART}{Self-Monitoring, Analysis and Reporting Technology}
 
-\newabbreviation[%
-  description=]
-  {tla}% the key of the acronym (used in \gls macro for example)
-  {TLA}% the short form of the acronym
-  {three-letter acronym}% the long form of the acronym
+\newacronym[description=to build or produce something rather than purchasing it ready-made by others{,} or paying someone else to make it]%
+  {DIY}{DIY}{do-it-yourself}
 
 \newacronym[%
   description=a four-letter acronym]
-  {etla}% the key of the acronym (used in \gls macro for example)
-  {ETLA}% the short form of the acronym
-  {extended three-letter acronym}% the long form of the acronym
+  {etla}
+  {ETLA}
+  {extended three-letter acronym}
+
+\newabbreviation[%
+  description=]% This abbreviation has no description; only the abbreviation and the unabbreviated form will be shown
+  {aut}{Aut}{Automorphism group}
 
 \newglossaryentry{symb:c}{%
   name=$c$,%
   description=the speed of light%
 }
 
-\newglossaryentry{symb:a-b}{%
+\newglossaryentry{symb:a-b-closed}{%
   name=\ensuremath{a \pm b},%
   description=the closed interval \ensuremath{\left[a-b,a+b\right]}%
 }
@@ -41,7 +47,7 @@
 \newglossaryentry{supercali}{%
   name=supercalifragilisticexpialidocious,
   description=%
-    Atoning for being educable through delicate beauty.
+    Atoning for being educable through delicate beauty;
     Something to say when you have nothing to say.}
 
 % --------------------------------
@@ -51,4 +57,4 @@
 % Uncomment this command to have _all_ abbreviations and acronyms defined
 % in this file appear in the final list - rather than just the ones you
 % use in the thesis
-%\keepUnusedAbbreviations
+\keepUnusedAbbreviations

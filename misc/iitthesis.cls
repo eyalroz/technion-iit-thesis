@@ -128,8 +128,10 @@
 \RequirePackage{setspace}
 \RequirePackage{atbegshi}
 \ifbool{iitthesis-abbrevs}{
-  \RequirePackage[automake]{glossaries-extra}
+  \RequirePackage[automake,indexonlyfirst]{glossaries-extra}
+  \RequirePackage{longtable}
   \makeglossaries
+  \setabbreviationstyle[acronym]{long-short}
 }{}
 
 \iitthesis@geometry
@@ -617,7 +619,7 @@
   % based on https://tex.stackexchange.com/a/565077
   \newglossarystyle{iitthesis}{%
       \renewenvironment{theglossary}%
-      {\begin{longtable}{p{2cm}@{:\quad}p{\textwidth - 2cm - \glspagelistwidth}p{\glspagelistwidth}}}%
+      {\begin{longtable}{p{3cm}@{\quad}p{\textwidth - 3cm - \glspagelistwidth}p{\glspagelistwidth}}}%
           {\end{longtable}}%
       \renewcommand*{\glossaryheader}{%                   setting the table's header
           %\bfseries  & \bfseries Meaning \bfseries Description

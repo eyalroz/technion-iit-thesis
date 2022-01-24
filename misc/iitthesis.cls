@@ -130,7 +130,13 @@
 \ifbool{iitthesis-abbrevs}{
   \RequirePackage[automake,indexonlyfirst]{glossaries-extra}
   \RequirePackage{longtable}
-  \makeglossaries
+  \newglossary[nlg]{notation}{not}{ntn}{Notation and Abbreviations}
+  \renewcommand*{\acronymtype}{notation}
+  % We need to postpone makeglossaries to allow the
+  % document author to add their own
+  \AtEndPreamble{
+    \makeglossaries
+  }
   \setabbreviationstyle[acronym]{long-short}
 }{}
 
@@ -642,7 +648,7 @@
    \label{chap:notation-and-abbreviations}
    \addcontentsline{toc}{chapter}{Notation and Abbreviations}
    \addcontentsline{cot}{chapter}{רשימת סמלים וקיצורים}
-   \printglossary[title=,style=iitthesis]
+   \printglossary[type=notation,title=,style=iitthesis]
   }
 }{}
 

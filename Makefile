@@ -46,10 +46,11 @@ clean:
 	$(LATEXMK) -C $(MAIN) -quiet
 	$(shell echo "find . -name '*.aux' -print0 | xargs -0 rm -f")
 	$(shell find . -name '*.aux' -print0 | xargs -0 rm -f)
-	rm -rf aux
+	rm -rf aux/
 	rm -f .refresh
 	rm -f $(MAIN).pdfsync
 	rm -rf *~ *.tmp
+	rm -f *.glo *.gls *.ist *.not *.ntn *.nlg *.glg
 	rm -f *.bbl *.blg *.end *.fls *.log *.out *.fdb_latexmk *.cb *.thm
 # not removing the biber cache - it's not guaranteed that biber is even available,
 # or that biber --cache gives something meaningful

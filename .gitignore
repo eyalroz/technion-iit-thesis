@@ -99,10 +99,30 @@ sympy-plots-for-*.tex/
 *.cb
 *.cb2
 
+# patching-related
+*.orig
+*.rej
+*.diff
+
+# Temporary, cache, swap files
+\#\#*
+*.swp
+*.bkp
+
+# Files which "ask" to be hidden
+*~
+.*
+unused/
+delme/
+
+
 ## Additional ignores for this repository
 
 # archives
 *.zip
 *.tar.*
+
+
+
 
 thesis.pdf

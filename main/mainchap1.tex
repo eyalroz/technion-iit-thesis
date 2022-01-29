@@ -9,15 +9,15 @@ You might have a per-chapter mini-intro, possibly tying in to the relevant part 
 
 \lipsum[1]
 
-Let's cite a source: \cite{Yao1977}. And now,  let's introduce a (numbered) equation...
+Let's cite a source: \cite{Yao1977}. And now,  let's introduce a (numbered) equation. It will use \gls{symb:c}, which is one of the entries in the ``\nameref{chap:notation-and-abbreviations}'' list. The equation will be in ``display math'' mode, using the \texttt{align} environment.
+
 \begin{align}
 \label{eq:emc2}
 e &= mc^2
 \end{align}
-
-\begin{note}
-	Are you seeing a problem with the equation numbering? In some TeX processors and on some platforms, there may be a layout error, so that instead of ``(3.1)'' you get ``)3.1)'' or some other flipping of directions. Specifically, \url{http://overleaf.com} suffers from this problem (at least until 2020). Please make sure and use an appropriate TeX distribution that's up-to-date. Specifically, recent TeXLive versions work fine. On Overleaf, you can switch TeXLive versions using the main menu.
-\end{note}
+\begin{notes}
+\item	Are you seeing a problem with the equation numbering? In some TeX processors and on some platforms, there may be a layout error, so that instead of ``(3.1)'' you get ``)3.1)'' or some other flipping of directions. Specifically, \url{http://overleaf.com} suffers from this problem (at least until 2020). Please make sure and use an appropriate TeX distribution that's up-to-date. Specifically, recent TeXLive versions work fine. On Overleaf, you can switch TeXLive versions using the main menu.
+\end{notes}
 
 In \autoref{sec:thm-like} below, we will state some theorems.
 
@@ -86,7 +86,7 @@ This is a proposition environment. \qbfox{2}
 The moon revolves around the earth.
 \end{observation}
 
-There are several other theorem-like environments, of various kinds, defined in \texttt{misc/iitthesis-extra.sty}.
+There are several other theorem-like environments, of various kinds, defined in the file \texttt{misc/iitthesis-extra.sty}; and naturally you can add or modify these as you see fit.
 
 \subsection{A subsection}
 
@@ -120,3 +120,4 @@ In this subsection we'll have a figure. Remember that the {\LaTeX} compiler can 
   \caption{Two circles and a wavy line.}
 \end{figure}
 
+Let's also have, to conclude this subsection, another use of a term from ``\nameref{chap:notation-and-abbreviations}'', which we first used earlier (in \autoref{chap:prelims}). Here it is: \gls{DIY}. This will ensure it appears on multiple pages; but - its entry will only mention the first appearance, not this one.

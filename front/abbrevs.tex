@@ -1,53 +1,70 @@
-% Use this file to create "glossary entries" for abbreviations and acronyms.
-% The entries defined here don't necessarily have to be used in the thesis.
+% Use this file to create "glossary entries" for abbreviations and acronyms,
+% and other notation. The entries defined here don't necessarily have to be 
+% used in the thesis (but then you have to decide whether or not to display
+% the unused entries).
 
 % For this file to compile (and the example text in the main/prelims.tex file),
 % the package glossaries-extra is required. It is automatically included unless
 % the noabbrevs class option is used.
 
-% Optionally alter the style for typesetting abbreviations when using the \gls
-% command. Note you can also use multiple styles by categorizing abbreviations;
-% see the documentation for the glossaries-extras package at:
+% The following will alter the style for typesetting abbreviations when using 
+% the \gls command. Note you can also use multiple styles by categorizing 
+% abbreviations; see the documentation for the glossaries-extras package at:
 % https://ctan.org/pkg/glossaries-extra
 %
 %\setabbreviationstyle[acronym]{long-short-sc}
+%
+% If you're wondering why we're setting the seemingly-redundant "notation 
+% category", that's a hack discussed here:
+% https://tex.stackexchange.com/q/630541/5640 
 
 \newacronym[%
+  category=notation-category,%
   description=``The Senate and People of Rome'']% The description does not appear anywhere by default
   {spqr}% the key of the acronym (used with the \gls command for example)
   {SPQR}% the short form of the acronym
   {Senātus Populusque Rōmānus}% the long form of the acronym
 
-\newacronym[description=A technology used in data storage devices]%
+\newacronym[%
+  category=notation-category,%
+description=A technology used in data storage devices]%
   {smart}{SMART}{Self-Monitoring, Analysis and Reporting Technology}
 
-\newacronym[description=to build or produce something rather than purchasing it ready-made by others{,} or paying someone else to make it]%
-  {DIY}{DIY}{do-it-yourself}
+\newacronym[%
+  category=notation-category,%
+  description=to build or produce something{,} rather than purchasing it ready-made or paying someone to make it]%
+  {DIY}{DIY}{do it yourself}
 
 \newacronym[%
+  category=notation-category,%
   description=a four-letter acronym]
   {etla}
   {ETLA}
   {extended three-letter acronym}
 
 \newabbreviation[%
+  type=notation,%
+  category=notation-category,%
   description=]% This abbreviation has no description; only the abbreviation and the unabbreviated form will be shown
   {aut}{Aut}{Automorphism group}
 
 \newglossaryentry{symb:c}{%
   type=notation,%
+  category=notation-category,%
   name=$c$,%
   description=the speed of light%
 }
 
 \newglossaryentry{symb:a-b-closed}{%
   type=notation,%
+  category=notation-category,%
   name=\ensuremath{a \pm b},%
   description=the closed interval \ensuremath{\left[a-b,a+b\right]}%
 }
 
 \newglossaryentry{supercali}{%
   type=notation,%
+  category=notation-category,%
   name=supercalifragilisticexpialidocious,
   description=%
     Atoning for being educable through delicate beauty;

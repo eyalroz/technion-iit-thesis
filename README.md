@@ -27,8 +27,8 @@ You modify it until it becomes your own actual thesis:
 Your TeX distribution must include the appropriate packages for supporting the use of Hebrew in (Xe)LaTeX. Specifically, the Culmus fonts should be available, as one of them (David CLM) is used by default. In past versions, the template relied on the `babel` package and the `Jerusalem` and other old-style fonts; this is no longer the case: the [`polyglossia`](http://ctan.org/pkg/polyglossia) and the  [`bidi`](http://ctan.org/pkg/bidi) packages are now in use. Still, Hebrew is tricky and some packages have either compatibility issues with `polyglossia`/`bidi`, or must be loaded before `bidi`.
 
 ### Overleaf support
-The package works seamlessly with overleaf by changing the compiler's setting to TexLive 2017:
-To do so, first clone the overleaf templacte and then click the Menu button on the top left corner and select 2017 for the TexLive version.
+As of early 2022, this template works seamlessly with Overleaf --- if you set the compiler to XeLaTeX version 2018.
+To do so, first clone the (up-to-date) Overleaf template, then click the Menu button on the top left corner and select XeLaTeX as the compiler and 2018 as the Tex Live version.
 
 
 ## About this project

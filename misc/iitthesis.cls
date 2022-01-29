@@ -128,9 +128,20 @@
 \RequirePackage{setspace}
 \RequirePackage{atbegshi}
 \ifbool{iitthesis-abbrevs}{
-  \RequirePackage[automake,indexonlyfirst]{glossaries-extra}
+  \RequirePackage[automake]{glossaries-extra}
   \RequirePackage{longtable}
   \newglossary[nlg]{notation}{not}{ntn}{Notation and Abbreviations}
+  % Our notation-and-abbrevs listing should only list the first occurrence
+  % of each item. We control this via the "category" of glossary items,
+  % even though the natural thing to do was to associate this with their
+  % "type" (which is the glossary to which they belong). So, this is
+  % somewhat of a hack % ... and it will also prevent you from using the 
+  % same entry both in the notation list and in another glossary (e.g. an 
+  % index).
+  %
+  % See discussion at https://tex.stackexchange.com/q/630541/5640 
+  %
+  \glssetcategoryattribute{notation-category}{indexonlyfirst}{true}
   \renewcommand*{\acronymtype}{notation}
   % We need to postpone makeglossaries to allow the
   % document author to add their own

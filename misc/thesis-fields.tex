@@ -29,7 +29,7 @@
 
 Some results in this thesis have been published as articles by the author and research collaborators in conferences and journals during the course of the author's doctoral research period, the most up-to-date versions of which being:
 
-\butcheredbibliography{pubinfo}{front/pubinfo}
+\butcheredbibliography{front/pubinfo.bib}
 }
 
 \publicationInfoHebrew{%
@@ -38,11 +38,11 @@ Some results in this thesis have been published as articles by the author and re
 חלק מן התוצאות בחיבור זה פורסמו כמאמרים מאת המחבר ושותפיו למחקר בכנסים ובכתבי-עת במהלך תקופת מחקר הדוקטורט של המחבר, אשר גרסאותיהם העדכניות ביותר הינן:%
 
 \begin{otherlanguage}{english}%
-% No need to mention the bibliography file this time, as it has already been used in
-% the English invocation
-\butcheredbibliography{pubinfo}{front/pubinfo}
+\butcheredbibliography{front/pubinfo.bib}
 \end{otherlanguage}%
 }
 
-\thesisbibfiles{back/general}
-\thesisbibstyle{alpha}
+% The biblatex package uses the \addbibresource to add bib files to its database. 
+\addbibresource{back/general.bib}
+% TODO: the style seems like a package option; not sure how to pass it from here.
+% \thesisbibstyle{trad-alpha}

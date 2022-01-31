@@ -607,22 +607,45 @@
 %{\end{\envof@envname}}
 %\makeatother
 
+\defbibenvironment{pubinfo}
+{\list
+   {}
+   {\setlength{\leftmargin}{0in}%
+    \setlength{\rightmargin}{0in}%
+    \setlength{\itemindent}{-\leftmargin}%
+    \setlength{\itemsep}{\bibitemsep}%
+    \setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\item}
 
-% If you are using WinEdt, and require the acknowledgements page
-% references, and are having problems getting your document to compile
-% with the 'PDFLaTeXify' button, some of the following code needs to go
-% into the main .tex file being compiled - otherwise WinEdt ignores
-% the additional bibliography and doesn't bibtex it. See also:
-% http://tex.stackexchange.com/q/41727/5640
-\RequirePackage{multibib}
-\newcommand{\iitthesisextramultibibdefs}{%
-  \newcites{pubinfo}{Acknowledgement page references}%
-}
-\AtBeginDocument{%
-  \bibliographystylepubinfo{misc/iitpubinfo}%
-  \iitthesisextramultibibdefs%
+\AtEveryBibitem{
+  % For front-page bibliography remove url and doi.
+  \ifkeyword{pubinfo}{%
+    \clearfield{url}%
+    \clearfield{doi}%
+  }{}%
 }
 
+% \preparebutcheredbibliography - set up the front page bibliography
+% arguments:
+%  #1 - the bib file
+\newcommand{\preparebutcheredbibliography}[1]{%
+  % Set the keyword "pubinfo" for the references in the front page bibliography
+  % https://tex.stackexchange.com/a/35779
+  \DeclareSourcemap{
+    \maps[datatype=bibtex, overwrite]{
+      \map{
+        % https://tex.stackexchange.com/a/516673/5109
+        \step[fieldset=ABSTRACT, null]
+        \step[fieldset=KEYWORDS, null]
+      }
+      \map{
+        \perdatasource{#1}
+        \step[fieldset=KEYWORDS, fieldvalue=pubinfo, append]
+      }
+    }
+  }
+}
 
 % \butcheredbibliography - inserts an on-the-spot 'bibliography' -
 % no title, no new section/chapter etc. - with no cite keys, smaller
@@ -633,60 +656,38 @@
 % entries from the file are used.
 %
 % arguments:
-%  #1  the multibib bibliography name (appended to certain commands)
-%  #2  the bibliography filename/s
+%  #1  the bibliography filename/s
 %      (e.g. if your bib file is in a subdirectory)
 %
 \newsavebox{\butcheredbib@box}
-\newcommand{\butcheredbibliography}[2]{
+\newcommand{\butcheredbibliography}[1]{
   %\makeatletter
   \ifdefined\butcheredbib@pubinfo
-    % already used the #1 bibliography's source file/s, so
-    % no need to re-indicate all items are necessary
+    % TODO assert the same #1 parameter is used
   \else
-    \@nameuse{nocite#1}{*} % e.g. \nocitepubinfo{*}
-  \fi
-  \begingroup
-  \let\etalchar\@undefined
-  \def\thebibliography##1{%
-    \begin{center}%
-    \begin{spacing}{1}%
     \begin{lrbox}{\butcheredbib@box}%
-    \footnotesize
-    \begin{minipage}{0.9\textwidth}%
-    \begin{list}{}{%
-      \setlength{\leftmargin}{0in}%
-      \setlength{\rightmargin}{0in}%
-      %\setlength{\leftmargin}{0.1\textwidth}%
-      %\setlength{\rightmargin}{0.1\textwidth}%
-      }%
-  }%
-  \def\endthebibliography{%
-    \end{list}%
-    \end{minipage}%
+      \begin{refcontext}[sorting=none]
+        % See: https://tex.stackexchange.com/a/171153
+        \begin{refsection}[#1]
+          \nocite{*}
+
+          \begingroup
+            \def\bibfont{\footnotesize}
+            \begin{minipage}{0.9\textwidth}
+              \printbibliography[heading=none,env=pubinfo]
+            \end{minipage}
+          \endgroup%
+        \end{refsection}
+      \end{refcontext}
     \end{lrbox}%
-    \fbox{\usebox{\butcheredbib@box}}
-    \end{spacing}%
-    \end{center}%
-  }%
-  % the following works for 'plain' bibliographystyle
-  %\def\bibitem##1##2\par{\IfSubStr{#1}{##1}{\item[\cite{##1}]##2}{}}%
-  % the following works for 'alpha' bibliographystyle, and probably
-  % most other styles in which a non-numeric key is generated
-  %\def\bibitem[##1]##2##3\par{\IfSubStr{#1}{##2}{\item[\cite{##2}]##3}{}}%
-  % the following works for 'alpha' bibliographystyle, and probably
-  % most other styles in which a non-numeric key is generated - it uses
-  % the generated cite key instead of the bullet
-  \def\bibitem[##1]##2##3\par{\item[]##3}%
-  \ifdefined\butcheredbib@pubinfo
-    % already used the #1 bibliography's source file/s; we're
-    % assuming the caller has not indicated other sources...
-    \@input{#1.bbl}%
-  \else
-    \@nameuse{bibliography#1}{#2}
   \fi
-  \global\expandafter\def\csname butcheredbib@#1\endcsname{}
-  \endgroup%
+  \begin{center}
+    \par
+    \fbox{%
+      \usebox\butcheredbib@box%
+    }%
+  \end{center}
+  \global\def\butcheredbib@pubinfo{}
   %\makeatother
 }
 

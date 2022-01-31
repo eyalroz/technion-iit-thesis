@@ -40,6 +40,8 @@
 % necessary and not everyone might like it)
 \usepackage{misc/iitthesis-extra}
 
+\preparebutcheredbibliography{front/pubinfo.bib}
+
 % Definitions useful for anything you write, which you also
 % include in any articles, presentations, HW assignments and other
 % documents. May contains macros for notation algebra, logic,
@@ -49,17 +51,6 @@
 
 % Definitions, settings and tweaks for this thesis specifically
 \include{misc/my-thesis-specific}
-
-% If you are using WinEdt, and using a publication list on the the
-% acknowledgements page, and are having problems getting your document
-% to compile with the 'PDFLaTeXify' button, try uncommenting the
-% following two lines;
-% Also, you will need to PDFLaTeXify at least twice, as WinEdt misses
-% an extra run. See also:
-% http://tex.stackexchange.com/q/41727/5640
-\usepackage{multibib}
-\newcites{pubinfo}{Acknowledgement page references}
-\def\iitthesisextramultibibdefs{}
 
 \begin{document}
 

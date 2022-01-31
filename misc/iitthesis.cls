@@ -286,10 +286,6 @@
 % Regulations require the Hebrew abstract contain 1,000-2,000 words.
 \iitthesis@thesisdatafield{abstractHebrew}{תקציר החיבור.}
 \iitthesis@thesisdatafield{abbreviationsAndNotation}{Notation and Abbreviations listing here.}
-\iitthesis@thesisdatafield{thesisbibstyle}{alpha}
-% the following should be a comma-separate list of relative filenames,
-% e.g. {backmatter/compsci.bib,backmatter/math.bib,specific.bib}
-\iitthesis@thesisdatafield{thesisbibfiles}{}
 
 %--------------------------------
 
@@ -333,19 +329,33 @@
  }{ }
 }
 
+% Biblatex general settings
+\RequirePackage[
+  isbn=false,
+  doi=false,
+  url=true,
+  maxbibnames=99, % Effectively ensure all authors are listed
+  language=american, % ... English
+  style=trad-alpha,
+  maxalphanames=4 % Only use first 4 names for an initials key
+  ]{biblatex}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\setcounter{biburlnumpenalty}{9000}
+\AtEveryBibitem{
+  % remove abstract from bibliographic entries
+  \clearfield{abstract}%
+  % do not show both eprint/doi and url
+  \iffieldundef{eprint}{}{\clearfield{url}}%
+}
+
 \newcommand{\makebibliography}{%
-  \ifx\iitthesis@thesisbibfiles\@empty
-    \PackageError{iitthesis}{%
-      No bibliography files specified; a thesis must contain a bibliography.}
-  \else
-    \ifdefined\pdfbookmark
-      % If hyperref is loaded, this will help us to more
-      % easily navigate to the bibliography
-      \pdfbookmark[0]{Bibliography}{bib}%
-    \fi
-    \bibliographystyle{\iitthesis@thesisbibstyle}%
-    \bibliography{\iitthesis@thesisbibfiles}%
-  \fi%
+  \ifdefined\pdfbookmark
+    % If hyperref is loaded, this will help us to more
+    % easily navigate to the bibliography
+    % \pdfbookmark[0]{Bibliography}{bib}%
+  \fi
+  \printbibliography[heading=bibintoc]
 }
 
 \newcommand{\makebackmatter}{%

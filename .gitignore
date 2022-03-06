@@ -111,7 +111,7 @@ sympy-plots-for-*.tex/
 
 # Files which "ask" to be hidden
 *~
-.*
+#.*
 unused/
 delme/
 

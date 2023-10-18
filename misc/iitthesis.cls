@@ -22,12 +22,12 @@
 %%
 
 \def\filename{iitthesis}
-\def\fileversion{v0.10}
-\def\filedate{2022/01/14}
+\def\fileversion{v0.11}
+\def\filedate{2023/10/18}
 \NeedsTeXFormat{LaTeX2e}
 \edef\iitthesis@TechnionIITThesis{%
 \filedate\space\fileversion\space - Technion IIT Thesis}
-\ProvidesClass{\filename}[\iitthesis@TechnionIITThesis]
+\ProvidesClass{misc/\filename}[\iitthesis@TechnionIITThesis]
 
 %--------------------------------
 

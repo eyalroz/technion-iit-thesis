@@ -19,6 +19,13 @@ e &= mc^2
 \item	Are you seeing a problem with the equation numbering? In some TeX processors and on some platforms, there may be a layout error, so that instead of ``(3.1)'' you get ``)3.1)'' or some other flipping of directions. Specifically, \url{http://overleaf.com} suffers from this problem (at least until 2020). Please make sure and use an appropriate TeX distribution that's up-to-date. Specifically, recent TeXLive versions work fine. On Overleaf, you can switch TeXLive versions using the main menu.
 \end{notes}
 
+Alternatively, we can use the \texttt{equation} environment with a label. For this to work, our theorem layout package, \texttt{ntheorem}, must be used with the \texttt{amsmath} option. Having done so, let's try our equation:
+\begin{equation}
+\label{eq:power-series}
+f(x)=\sum_{i=0}^{\infty} a_i x^i
+\end{equation}
+Equation \ref{eq:power-series} is a typical power series.
+
 In \autoref{sec:thm-like} below, we will state some theorems.
 
 \section{Results... and theorem-like environments}

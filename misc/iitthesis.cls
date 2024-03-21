@@ -170,12 +170,42 @@
 \setmainlanguage{english} % Palestine was under British rule after all
 \IfFileExists{bidi.sty}{}{\ClassError{\filename}{The bidi package is not available for loading}{}}
 \AtEndPreamble{
- \setotherlanguage[numerals=arabic,calendar=gregorian]{hebrew}
+ \setotherlanguage[numerals=arabic,calendar=gregorian,fullyear=true]{hebrew}
  \newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
  % These next two lines fix an issue with equation numbering parentheses;
  % see: https://tex.stackexchange.com/a/141437/5640
  \def\maketag@@@#1{\hbox{\m@th\normalfont\LRE{#1}}}
  \def\tagform@#1{\maketag@@@{(\ignorespaces#1\unskip)}}
+ \RequirePackage{hebrewcal}
+
+ % override hebrewcal.tex macros to remove the day of the month:
+ % See: https://tex.stackexchange.com/questions/610388
+ \def\@FormatForHebrew#1#2#3{%
+  \HebrewMonthName{#2}{#3}~%
+  \HebrewYearName{#3}}
+ \def\@FormatForEnglish#1#2#3{%
+  \HebrewMonthNameInEnglish{#2}{#3}~%
+  \number#3}
+
+ % Create datetime2 styles without the day of the month for the Hebrew
+ % and English gregorian dates.
+ \RequirePackage[calc,useregional=text,hebrew,en-US]{datetime2}
+ \DTMnewdatestyle{engmonthyeardate}{%
+    \renewcommand{\DTMdisplaydate}[4]{%
+      \DTMmonthname{##2} \number##1 }%
+    \renewcommand{\DTMDisplaydate}{\DTMdisplaydate}%
+ }
+ \DTMnewdatestyle{hebmonthyeardate}{%
+    \renewcommand{\DTMdisplaydate}[4]{%
+      \hebrewgregmonth{##2} \hebrewnumber##1 }%
+    \renewcommand{\DTMDisplaydate}{\DTMdisplaydate}%
+ }
+ \newcommand{\EngGregToNoDay}{%
+    \DTMsetdatestyle{engmonthyeardate}\today
+ }
+ \newcommand{\HebGregToNoDay}{%
+    \DTMsetdatestyle{hebmonthyeardate}\today
+ }
 }
 
 %--------------------------------
@@ -313,10 +343,6 @@
 \iitthesis@thesisdatafield{supervisionHebrew}{מידע על המנחים וההנחיה}
 \iitthesis@thesisdatafield{publicationInfoHebrew}{ציון אם העבודה פורסמה בכתבי עת או  הוצגה בכנסים. הרשימה תכתב בהתאם לכללי הציטוט (כולל הכותר ושמות השותפים). במקרה של שיתוף פעולה, פירוט תרומת המגיש.}
 \iitthesis@thesisdatafield{publicationInfoEnglish}{Info about whether the contents of the thesis was published, about collaborators and the thesis author's contribution.}
-\iitthesis@thesisdatafield{GregorianDateEnglish}{Gregorian Month and Year}
-\iitthesis@thesisdatafield{GregorianDateHebrew}{חודש ושנה גרגוריאניים}
-\iitthesis@thesisdatafield{JewishDateEnglish}{Hebrew Month and Year}
-\iitthesis@thesisdatafield{JewishDateHebrew}{חודש ושנה עבריים}
 \iitthesis@thesisdatafield{personalAcknowledgementEnglish}{The author's personal acknowledgements.}
 \iitthesis@thesisdatafield{personalAcknowledgementHebrew}{שלמי-התודה של המחבר.}
 \iitthesis@thesisdatafield{financialAcknowledgementEnglish}{The generous financial help of the Technion is gratefully acknowledged.}
@@ -536,7 +562,7 @@
     \begin{center}
       Submitted to the Senate \\
       of the Technion {\textemdash} Israel Institute of Technology
-      \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
+      \Hebrewtoday \hspace{1cm} Haifa \hspace{1cm} \EngGregToNoDay
     \end{center}
   }}
  \end{center}
@@ -576,7 +602,7 @@
     \begin{center}
       Submitted to the Senate \\
       of the Technion {\textemdash} Israel Institute of Technology
-      \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
+      \Hebrewtoday \hspace{1cm} Haifa \hspace{1cm} \EngGregToNoDay
     \end{center}
   }
  \end{center}
@@ -737,9 +763,9 @@
      \normalsize
      \begin{center}
        מוגש לסנט הטכניון {\textemdash} מכון טכנולוגי לישראל
-       \iitthesis@JewishDateHebrew
+       \Hebrewtoday
        \hspace{0.75cm} חיפה \hspace{0.75cm}
-       \iitthesis@GregorianDateHebrew
+       \HebGregToNoDay
      \end{center}
   }}
  \end{center}
@@ -780,9 +806,9 @@
      \normalsize
      \begin{center}
        הוגש לסנט הטכניון {\textemdash\relax} מכון טכנולוגי לישראל \\
-       \iitthesis@JewishDateHebrew
+       \Hebrewtoday
        \hspace{0.75cm} חיפה \hspace{0.75cm}
-       \iitthesis@GregorianDateHebrew
+       \HebGregToNoDay
      \end{center}
   }
  \end{center}

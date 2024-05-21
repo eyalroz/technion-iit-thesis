@@ -1,6 +1,6 @@
 # technion-iit-thesis
 
-A LaTeX class for authoring masters' and doctoral thesis at the Technion IIT, in conformance with the Technion's formatting requirements, and a sample thesis using this LaTeX class, the files and directory structure of which can serve as a template for a real thesis.
+A LaTeX document class for authoring masters' or doctoral thesis at the Technion IIT, in conformance with the Technion's formatting requirements, and a sample thesis using this LaTeX class, the files and directory structure of which can serve as a template for a real thesis.
 
 ## Using the template
 
@@ -46,7 +46,7 @@ If you've found this file within some archive or on one of the Technion's web se
 
 ### Is this actually used or endorsed?
 
-This class was adopted as the [official Ph.D. thesis template](http://www.cs.technion.ac.il/graduate/etc/thesis-template/) of the [Technion Faculty of Computer Science](http://www.cs.technion.ac.il/), in 2013. Multiple Ph.D. and M.Sc. candidates have used it already, but we don't have any statistics.
+This class was adopted as the [official Ph.D. thesis template]((https://graduate.cs.technion.ac.il/en/graduate-studies/graduation/hagasha/) of the [Technion Faculty of Computer Science](http://www.cs.technion.ac.il/), in 2013. Numerous Ph.D. and M.Sc. candidates have used it already, but we don't have any statistics.
 
 ### Contributors
 

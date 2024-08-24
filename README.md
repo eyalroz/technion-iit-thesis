@@ -1,18 +1,21 @@
 # technion-iit-thesis
 
-A LaTeX document class for authoring masters' or doctoral thesis at the Technion IIT, in conformance with the Technion's formatting requirements, and a sample thesis using this LaTeX class, the files and directory structure of which can serve as a template for a real thesis.
+A LaTeX document class for authoring masters' or doctoral thesis at the Technion IIT, in conformance with the Technion's formatting requirements, and a sample thesis using this LaTeX class, the files and directory structure of which can serve as a template for an actual thesis.
 
 ## Using the template
 
 ### Getting started
 
-Basically, you just compile it using `xelatex`. The template should compile well on a modern (2013 or later) TeX distribution such as TeXLive or MikTeX. The most convenient way to do so is to use the `latexmk` Make-like tool included in these packages, in the template's root folder (where `thesis.tex` is located), as follows:
+1. Deploy a recent LaTeX distribution like (TeXLive or MikTeX, 2018 or later).
+2. Invoke the `latexmk` Make-like tool included in your TeX distribution, at the thesis' root folder (where `thesis.tex` is located), like so:
 
-    latexmk -xelatex thesis
+       latexmk -xelatex thesis
 
-The build tool should invoke the appropriate executable repeatedly (including `bibtex`, `xelatex` etc.) until building has concluded or an error is encountered. The template, as distributed, should compile without error (but with some warnings); once you've compiled it you have a `thesis.pdf` file, which you should read for additional information.
+The template, as distributed, should compile without error (but with some warnings); once you've compiled it you have a `thesis.pdf` file, which you should read for additional information.
 
-Alternatively, if you're on a Unix-like system, you can use the Makefile; see [this description](https://github.com/eyalroz/technion-iit-thesis/pull/19). If you don't know what a Makefile is - never mind.
+Why this `latexmk` tool? Building/compiling the thesis requires multiple invocations of the `xelatex` processor, interspersed with invocations of other tools (`biber`, `makeindex`) - for bibliography, indices, table-of-contents, etc. In fact, even plain-vanilla `latexmk` requires a bit of help to ensure it invokes `make_glossaries`  (details in `.latexmkrc`). TeX IDEs (like TeXStudio, WinEdt, Kile) will typically not be able to "figure it all out" by themselves, and will thus fail to properly build the thesis.
+
+If you're on a Unix-like system, there is also a `Makefile` which offers a little more functionality, like archiving and symlinking; see [this description](https://github.com/eyalroz/technion-iit-thesis/pull/19). If you don't know what a Makefile is - never mind.
 
 ### "Ok, I've compiled the template; what next?"
 
@@ -105,7 +108,6 @@ README.md
 	this file
 Makefile
         Does some build/cleaning automation for you
-makezip.sh
-makezip.bat
-	Used to create a ZIP archive of the template
+.latexmkrc
+        Extra rules for the latexmk too
 ```

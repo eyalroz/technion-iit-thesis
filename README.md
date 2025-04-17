@@ -17,6 +17,8 @@ Why this `latexmk` tool? Building/compiling the thesis requires multiple invocat
 
 If you're on a Unix-like system, there is also a `Makefile` which offers a little more functionality, like archiving and symlinking; see [this description](https://github.com/eyalroz/technion-iit-thesis/pull/19). If you don't know what a Makefile is - never mind.
 
+Some editor related tools like [`Vimtex`](https://github.com/lervag/vimtex), read the `.latexmkrc` settings and function in according to them.
+
 ### "Ok, I've compiled the template; what next?"
 
 You modify it until it becomes your own actual thesis:

@@ -1,17 +1,20 @@
-# Makefile for thesis.
-# Simply run `make` to build the thesis.pdf.
-# You can also use `make pvc` to "preview continuously" (i.e. pdf will update
-# in real time while editing the source files).
-# Use `make clean` to remove all generated files.
-# Note that all auxilliary files will be stored in the `aux` directory to keep
-# the root directory clean.
 #
-# This is roughly based on: 
+# Makefile for thesis generation using the Technion IIT document class
+#
+# To use it, you must have GNU Make installed (in addition to a LaTeX
+# distribution), and standard shell tools like GNU `find`. Then, in the same
+# directory as this file, invoke `make`.
+#
+# You can also invoke `make pvc` to "preview continuously" (i.e. pdf will update
+# in real time while editing the source files), or `make clean` to remove all
+# generated files.
+#
+# This is roughly based on:
 # https://drewsilcock.co.uk/using-make-and-latexmk
 # http://tex.stackexchange.com/questions/40738/how-to-properly-make-a-latex-project
 #
-
-# Also set in .latexmkrc
+# See also the various settings in .latexmkrc
+#
 AUXDIR=aux
 
 LATEXMK=latexmk

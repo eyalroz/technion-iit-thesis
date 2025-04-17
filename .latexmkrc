@@ -6,6 +6,11 @@ push @generated_exts, 'glo', 'gls', 'glg';
 push @generated_exts, 'acn', 'acr', 'alg';
 push @generated_exts, 'ntn', 'not', 'nlg';
 
+$aux_dir = 'aux';
+$out_dir = 'aux';
+$pdflatex = 'xelatex --shell-escape %O %S';
+$pdf_mode = 1;
+
 $clean_ext .= " acr acn alg glo gls glg ist not ntn";
 
 sub run_makeglossaries {

@@ -11,14 +11,11 @@
 # http://tex.stackexchange.com/questions/40738/how-to-properly-make-a-latex-project
 #
 
-LATEX=xelatex
-LATEXOPT=--shell-escape
-NONSTOP=--interaction=nonstopmode
+# Also set in .latexmkrc
 AUXDIR=aux
 
 LATEXMK=latexmk
-LATEXMKOPT=-pdf -outdir=$(AUXDIR) -auxdir=$(AUXDIR)
-CONTINUOUS=-pvc
+CONTINUOUS=-pvc --interaction=nonstopmode
 
 MAIN=thesis
 OUTPUT_FILENAME=thesis
@@ -29,13 +26,13 @@ FIGURES := $(shell find graphics/* -type f)
 all: symlink once
 
 once: symlink
-	$(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) %O %S" $(MAIN)
+	$(LATEXMK) $(MAIN)
 
 .refresh:
 	touch .refresh
 
 pvc: aux $(MAIN).tex .refresh $(SOURCES) $(FIGURES)
-	$(LATEXMK) $(LATEXMKOPT) $(CONTINUOUS) -pdflatex="$(LATEX) $(LATEXOPT) $(NONSTOP) %O %S" $(MAIN)
+	$(LATEXMK) $(CONTINUOUS) $(MAIN)
 
 # Create a symlink for the final PDF
 symlink: aux

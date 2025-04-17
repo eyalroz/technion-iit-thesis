@@ -9,7 +9,7 @@ A LaTeX document class for authoring masters' or doctoral thesis at the Technion
 1. Deploy a recent LaTeX distribution like (TeXLive or MikTeX, 2018 or later).
 2. Invoke the `latexmk` Make-like tool included in your TeX distribution, at the thesis' root folder (where `thesis.tex` is located), like so:
 
-       latexmk -xelatex thesis
+       latexmk thesis
 
 The template, as distributed, should compile without error (but with some warnings); once you've compiled it you have a `thesis.pdf` file, which you should read for additional information.
 

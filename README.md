@@ -15,7 +15,7 @@ The template, as distributed, should compile without error (but with some warnin
 
 Why this `latexmk` tool? Building/compiling the thesis requires multiple invocations of the `xelatex` processor, interspersed with invocations of other tools (`biber`, `makeindex`) - for bibliography, indices, table-of-contents, etc. In fact, even plain-vanilla `latexmk` requires a bit of help to ensure it invokes `make_glossaries`  (details in `.latexmkrc`). TeX IDEs (like TeXStudio, WinEdt, Kile) will typically not be able to "figure it all out" by themselves, and will thus fail to properly build the thesis.
 
-If you're on a Unix-like system, there is also a `Makefile` which offers a little more functionality, like archiving and symlinking; see [this description](https://github.com/eyalroz/technion-iit-thesis/pull/19). If you don't know what a Makefile is - never mind.
+If you're on a Unix-like system (e.g. Linux, MacOS), there is also a `Makefile` which offers a little more functionality, like archiving and symlinking; see [this description](https://github.com/eyalroz/technion-iit-thesis/pull/19), or the comments within the `Makefile` itself. If you don't know what a Makefile is - never mind.
 
 ### "Ok, I've compiled the template; what next?"
 

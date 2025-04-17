@@ -49,7 +49,7 @@ If you've found this file within some archive or on one of the Technion's web se
 
 ### Is this actually used or endorsed?
 
-This class was adopted as the [official Ph.D. thesis template]((https://graduate.cs.technion.ac.il/en/graduate-studies/graduation/hagasha/) of the [Technion Faculty of Computer Science](http://www.cs.technion.ac.il/), in 2013. Numerous Ph.D. and M.Sc. candidates have used it already, but we don't have any statistics.
+This class was adopted as the [official Ph.D. thesis template](https://graduate.cs.technion.ac.il/en/graduate-studies/graduation/hagasha/) of the [Technion Faculty of Computer Science](http://www.cs.technion.ac.il/), in 2013. Numerous Ph.D. and M.Sc. candidates have used it already, but we don't have any statistics.
 
 ### Contributors
 

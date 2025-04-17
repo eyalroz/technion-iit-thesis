@@ -24,7 +24,7 @@ MAIN=thesis
 OUTPUT_FILENAME=thesis
 SOURCES := Makefile $(shell find . -regex '.*\.\(tex\|cls\|sty\|bib\)')
 ADDITIONAL_FILES := README.md
-FIGURES := $(shell find graphics/* -type f)
+FIGURES := $(shell find graphics/ -type f)
 
 all: symlink once
 

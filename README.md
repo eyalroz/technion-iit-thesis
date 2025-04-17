@@ -42,7 +42,7 @@ If you've found this file within some archive or on one of the Technion's web se
 
 ### Key Features
 
-- (Hopefully) maintained to be in conformance with the [Technion graduate school](http://www.graduate.technion.ac.il/eng)'s [requirements from Ph.D. theses](http://www.graduate.technion.ac.il/eng/FinalProcedures/Editing%20%20Submission%20of%20Thesis.htm) ([Hebrew version](http://www.graduate.technion.ac.il/Heb/Graduation/Thesis_editing.asp)).
+- (Hopefully) maintained to be in conformance with the [Technion graduate school](https://graduate.technion.ac.il/)'s requirements regarding the typesetting, organization and contents of research theses: [English](https://graduate.technion.ac.il/en/graduation-2/editing-the-thesis/), ([Hebrew](https://graduate.technion.ac.il/graduation/thesis-editing/)).
 - Supports printing _everything_ just once, into a single PDF file, in a single run, with all of the spacing arranged properly. This may sound trivial if you don't write in Hebrew, but it is a small hell to get this all to work without having to insert empty pages in your LaTeX, print sections separately, flip directions of the printed versions etc. No more!
 - Has both a pre-thesis-defense mode, for the version sent to your thesis readers, and a post-defense mode for the copies you submit to the library, give to your friends/wife/parents/children etc.
 - Various convenience features (most of them outside of the document class file and in an optional `.sty` style file)
@@ -66,7 +66,7 @@ This class was adopted as the [official Ph.D. thesis template](https://graduate.
 | bug / mistake you'd like to report                               | file it as a new issue on the [issues page](https://github.com/eyalroz/technion-iit-thesis/issues)                                                                                                                                |
 | suggestion or feature request regarding the template             | file it as a new issue on the [issues page](https://github.com/eyalroz/technion-iit-thesis/issues)                                                                                                                                |
 | question regarding the thesis submission process                     | Contact your department's graduate studies secretariat.                                                          |
-| question regarding the Graduate School's guidelines for theses | Contact the "conclusion-stage" department at the Graduate School (Contact info: [English](http://www.graduate.technion.ac.il/Eng/General_info/Contact_us.asp), [Hebrew](http://www.graduate.technion.ac.il/Heb/General/Contact_us.asp)) |
+| question regarding the Graduate School's thesis authoring requirements | Contact the "Graduation Procedure" staff at the Graduate School (Contact info: [English](https://graduate.technion.ac.il/en/contact/), [Hebrew](https://graduate.technion.ac.il/contact-us/)) |
 | the ability to help the maintainer get his `@technion.ac.il` email address back | write [the maintainer](mailto:eyalroz1@gmx.com)                                                                                                                                                                             |
 | some other kind of feedback                                      | write [the maintainer](mailto:eyalroz1@gmx.com)                                                                                                                                                                             |
 

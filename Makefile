@@ -29,7 +29,7 @@ FIGURES := $(shell find graphics/* -type f)
 all: symlink once
 
 once: symlink
-	$(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) %O %S" $(MAIN)
+	$(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) $(NONSTOP) %O %S" $(MAIN)
 
 .refresh:
 	touch .refresh

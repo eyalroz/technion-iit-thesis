@@ -155,7 +155,11 @@
     \makeglossaries
   }
   \setabbreviationstyle[acronym]{long-short}
-}{}
+}{
+  % TODO: Explain why do we load it never the less, see:
+  % https://github.com/eyalroz/technion-iit-thesis/issues/67
+  \RequirePackage{glossaries-extra}
+}
 
 \iitthesis@geometry
 

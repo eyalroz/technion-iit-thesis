@@ -155,7 +155,16 @@
     \makeglossaries
   }
   \setabbreviationstyle[acronym]{long-short}
-}{}
+}{
+  % Q: Why should we use/require a glossary-related package if we're
+  %    running with the `noabbrevs` option set?
+  % A: This is due to a bug - either with this document class or
+  %    more likely with the combination of amsmath and ntheorem
+  %    in some situations. We get this error:
+  %    https://github.com/eyalroz/technion-iit-thesis/issues/67
+  %    and, somehow, requiring this package makes it go away
+  \RequirePackage{glossaries-extra}
+}
 
 \iitthesis@geometry
 

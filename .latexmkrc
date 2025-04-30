@@ -8,7 +8,9 @@ push @generated_exts, 'ntn', 'not', 'nlg';
 
 $aux_dir = 'aux';
 $out_dir = 'aux';
-$pdflatex = 'xelatex --shell-escape %O %S';
+# Allow override via environment variable
+$interaction = $ENV{'LATEXMK_INTERACTION'} || 'nonstopmode';
+$pdflatex = "xelatex --interaction=$interaction --halt-on-error --shell-escape %O %S";
 $pdf_mode = 1;
 
 $clean_ext .= " acr acn alg glo gls glg ist not ntn";

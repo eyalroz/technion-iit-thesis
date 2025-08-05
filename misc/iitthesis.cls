@@ -552,7 +552,7 @@
     \normalsize
     \begin{center}
       Submitted to the Senate \\
-      of the Technion {\textemdash} Israel Institute of Technology
+      of the Technion {\textemdash} Israel Institute of Technology \\
       \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
     \end{center}
   }}
@@ -592,7 +592,7 @@
     \normalsize
     \begin{center}
       Submitted to the Senate \\
-      of the Technion {\textemdash} Israel Institute of Technology
+      of the Technion {\textemdash} Israel Institute of Technology \\
       \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
     \end{center}
   }
@@ -758,7 +758,7 @@
   \vphantom{\parbox{3in}{
      \normalsize
      \begin{center}
-       מוגש לסנט הטכניון {\textemdash} מכון טכנולוגי לישראל
+       מוגש לסנט הטכניון {\textemdash} מכון טכנולוגי לישראל \\
        \iitthesis@JewishDateHebrew
        \hspace{0.75cm} חיפה \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew

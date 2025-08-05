@@ -552,7 +552,9 @@
     \normalsize
     \begin{center}
       Submitted to the Senate \\
-      of the Technion {\textemdash} Israel Institute of Technology
+      % Because this Hebrew month might be short (e.g 'Av'), LaTeX might
+      % typeset it on the preceding line, so we use another \\ just in case.
+      of the Technion {\textemdash} Israel Institute of Technology \\
       \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
     \end{center}
   }}
@@ -592,7 +594,8 @@
     \normalsize
     \begin{center}
       Submitted to the Senate \\
-      of the Technion {\textemdash} Israel Institute of Technology
+      % Same reasoning for \\ as in the above
+      of the Technion {\textemdash} Israel Institute of Technology \\
       \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
     \end{center}
   }
@@ -758,7 +761,7 @@
   \vphantom{\parbox{3in}{
      \normalsize
      \begin{center}
-       מוגש לסנט הטכניון {\textemdash} מכון טכנולוגי לישראל
+       מוגש לסנט הטכניון {\textemdash} מכון טכנולוגי לישראל \\
        \iitthesis@JewishDateHebrew
        \hspace{0.75cm} חיפה \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew

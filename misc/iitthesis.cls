@@ -536,7 +536,7 @@
   \vphantom{\parbox{4in}{
     \normalsize
     \begin{center}
-      Submitted in partial fulfillment of the requirements \\
+      in partial fulfillment of the requirements \\
       for the degree of \iitthesis@degreeEnglish
     \end{center}
   }}
@@ -577,7 +577,7 @@
   \parbox{4in}{
     \normalsize
     \begin{center}
-      Submitted in partial fulfillment of the requirements \\
+      in partial fulfillment of the requirements \\
       for the degree of \iitthesis@degreeEnglish
     \end{center}
   }

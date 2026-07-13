@@ -78,6 +78,12 @@
   \renewcommand{\iitthesis@degreeHebrew}{מגיסטר להנדסה}
 }
 
+\newbool{iitthesis-makecover}
+\boolfalse{iitthesis-makecover}
+\DeclareOption{with-cover-pages}{
+  % Typeset a cover page on each 'side' of the document - Hebrew and English
+  \booltrue{iitthesis-makecover}
+}
 \newbool{iitthesis-abbrevs}
 \booltrue{iitthesis-abbrevs}
 \DeclareOption{noabbrevs}{
@@ -356,8 +362,10 @@
 
  \pagestyle{empty}
 
- \makecoverEnglish
- \cleardoublepage
+ \ifbool{iitthesis-makecover}{
+  \makecoverEnglish
+  \cleardoublepage
+ }{ }
  \maketitleEnglish
  \cleardoublepage
  \makeacknowledgementsEnglish
@@ -451,13 +459,13 @@
  % The first Hebrew page must appear with the binding to its right; but the
  % way things are so far in the document is that odd pages (recto) have
  % margins to the left. So... maybe we should \cleartoleftpage (i.e. clear
- % to the next verso)? No, this will not to. Why? For two reasons.
+ % to the next verso)? No, this will not do. Why? For two reasons.
  %
  % First, remember the page order is reversed. The last page we get on the
- % output, being the first page we set here, must be the Hebrew cover page,
- % not a blank page.
+ % output, being the first page we set here, must be the Hebrew cover page
+ % (or the Hebrew title page), not a blank page.
  %
- % Second, if we \cleartoleftpage, this will mess up the  page ordering.
+ % Second, if we \cleartoleftpage, this will mess up the page ordering.
  % If the Hebrew pages are:
  %
  % Title verso, Empty recto, IntroPage1 verso, IntroPage2 recto
@@ -473,10 +481,12 @@
 
  \flipmargins
 
- \makecoverHebrew
- % We're not clearing to a verso page, since we've flipped the margins;
- % this should generate 1 empty page between the cover page and the title page
- \cleardoublepage
+ \ifbool{iitthesis-makecover}{
+  \makecoverHebrew
+  % We're not clearing to a verso page, since we've flipped the margins;
+  % this should generate 1 empty page between the cover page and the title page
+  \cleardoublepage
+ }{ }
  \maketitleHebrew
  \cleardoublepage
  \makeacknowledgementsHebrew
@@ -516,10 +526,9 @@
 % are used in \makefrontmatter and \makebackmatter
 %
 
-\newcommand{\makecoverEnglish}{%
+\newcommand{\maketitleEnglish}{%
 % Front cover / cover page
  \begin{center}
-  \pagestyle{empty}
 
   \vspace*{\stretch{1}}
   \begin{spacing}{1}
@@ -529,18 +538,17 @@
 
   \vspace*{\stretch{1}}
 
-  \vphantom{Research Thesis}
+  Research Thesis
 
   \vspace*{\stretch{0.5}}
 
-  \vphantom{\parbox{4in}{
+  \parbox{4in}{
     \normalsize
     \begin{center}
       in partial fulfillment of the requirements \\
       for the degree of \iitthesis@degreeEnglish
     \end{center}
-  }}
-
+  }
 
   \vspace*{\stretch{2}}
 
@@ -548,19 +556,20 @@
 
   \vspace*{\stretch{3}}
 
-  \vphantom{\parbox{3.5in}{
+  \parbox{3.5in}{
     \normalsize
     \begin{center}
       Submitted to the Senate \\
       of the Technion {\textemdash} Israel Institute of Technology \\
       \iitthesis@JewishDateEnglish \hspace{1cm} Haifa \hspace{1cm} \iitthesis@GregorianDateEnglish
     \end{center}
-  }}
+  }
  \end{center}
 }
 
-\newcommand{\maketitleEnglish}{%
+\newcommand{\makecoverEnglish}{%
  \begin{center}
+ \pagestyle{empty}
 
   \vspace*{\stretch{1}}
   \begin{spacing}{1}
@@ -725,29 +734,29 @@
 }
 
 
-\newcommand{\makecoverHebrew}{
-
+\newcommand{\maketitleHebrew}{
  \begin{hebrew}
  \begin{center}
-   \vspace*{\stretch{1}}
-   \begin{spacing}{1}
-     \Huge \textbf{\iitthesis@titleHebrew}
-   \end{spacing}
-   \Large
 
-   \vspace*{\stretch{1}}
+  \vspace*{\stretch{1}}
+  \begin{spacing}{1}
+    \Huge \textbf{\iitthesis@titleHebrew}
+  \end{spacing}
+  \Large
 
-   \vphantom{חיבור על מחקר}
+  \vspace*{\stretch{1}}
 
-   \vspace*{\stretch{0.5}}
+  חיבור על מחקר
 
-   \vphantom{\parbox{3.5in}{
-     \normalsize
-     \begin{center}
-       לשם מילוי חלקי של הדרישות לקבלת התואר \\
-       \iitthesis@degreeHebrew
-     \end{center}
-  }}
+  \vspace*{\stretch{0.5}}
+
+  \parbox{3.5in}{
+    \normalsize
+    \begin{center}
+      לשם מילוי חלקי של הדרישות לקבלת התואר \\
+      \iitthesis@degreeHebrew
+    \end{center}
+  }
 
   \vspace*{\stretch{2}}
 
@@ -755,20 +764,20 @@
 
   \vspace*{\stretch{3}}
 
-  \vphantom{\parbox{3in}{
+  \parbox{4in}{
      \normalsize
      \begin{center}
-       מוגש לסנט הטכניון {\textemdash} מכון טכנולוגי לישראל \\
+       הוגש לסנט הטכניון {\textemdash\relax} מכון טכנולוגי לישראל \\
        \iitthesis@JewishDateHebrew
        \hspace{0.75cm} חיפה \hspace{0.75cm}
        \iitthesis@GregorianDateHebrew
      \end{center}
-  }}
+  }
  \end{center}
  \end{hebrew}
 }
 
-\newcommand{\maketitleHebrew}{
+\newcommand{\makecoverHebrew}{
  \begin{hebrew}
  \begin{center}
 
